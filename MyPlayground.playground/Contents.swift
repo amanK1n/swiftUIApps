@@ -51,3 +51,5 @@ print(gameOver)
 
 gameOver.toggle()
 print(gameOver)
+
+print("5 x 5 is \(5 * 5)")
