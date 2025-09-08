@@ -72,3 +72,9 @@ for i in nums.enumerated() {
     }
 }
 print(nums)
+
+let n = 10
+var arr: [Int] = []
+arr.append(1)
+arr.append(n - 1)
+print(arr)
