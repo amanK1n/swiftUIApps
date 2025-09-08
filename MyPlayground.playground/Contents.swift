@@ -78,3 +78,32 @@ var arr: [Int] = []
 arr.append(1)
 arr.append(n - 1)
 print(arr)
+
+var truth: [Character: Character] = ["}":"{", "]":"[", ")":"("]
+
+var stack: [Character] = []
+var str = "{{)"
+
+for ch in str {
+    if truth.values.contains(ch) {
+    print("Added: ", ch)
+        stack.append(ch)
+    } else {
+  
+    if let last = stack.last {
+    print("Last:: ", last)
+    print("Char:", ch)
+    print("Char:Val", truth[ch] ?? "")
+       if last == truth[ch] {
+           let x = stack.removeLast()
+           print("rem: ", x)
+       } else {
+           print("NO match")
+       }
+    }
+    }
+}
+
+print(stack)
+
+       
