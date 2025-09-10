@@ -106,4 +106,30 @@ for ch in str {
 
 print(stack)
 
-       
+class Solution {
+    func longestCommonPrefix(_ strs: [String]) -> String {
+        // Edge case: empty input
+        guard !strs.isEmpty else { return "" }
+        
+        // Edge case: if any string is empty → no common prefix
+        if strs.contains(where: { $0.isEmpty }) {
+            return ""
+        }
+        
+        // Start with the first word as the prefix
+        var prefix = strs[0]
+        
+        // Compare with each word
+        for word in strs {
+            while !word.hasPrefix(prefix) {
+                prefix.removeLast()  // shrink the prefix
+                if prefix.isEmpty {
+                    return ""
+                }
+            }
+        }
+        
+        return prefix
+    }
+}
+
