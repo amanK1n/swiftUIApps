@@ -62,3 +62,4 @@ for i in arr4 {
 }
 print("Sol3(a): Smallest::Optimal", smallest4)
 print("Sol3(b): Second Smallest::Optimal", secondSmallest4)
+print("new")
