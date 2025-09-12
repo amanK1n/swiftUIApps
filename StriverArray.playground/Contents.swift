@@ -91,3 +91,12 @@ for j in 1..<arr6.count {
     }
 }
 print("Sol5: Unique Sorted Array::", arr6)//resArr6
+
+// Rotate Array by 1 place
+var arr7 = [1,2,3,4,5]
+let firstElement = arr7[0]
+for i in 0..<arr7.count - 1 {
+    arr7[i] = arr7[i + 1]
+}
+arr7[arr7.count - 1] = firstElement
+print(arr7)
