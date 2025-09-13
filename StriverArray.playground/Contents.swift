@@ -124,3 +124,44 @@ for i in stride(from: arr9.count, to: 0, by: -1) {
     reversedArray.append(arr9[i - 1])
 }
 print("REV::", reversedArray)
+
+// Move all the zeroes to the end of the Array
+var arr10: [Int] = [0,1,0,3,12]
+var zeroCount: Int = 0
+var temp1: [Int] = []
+for i in 0..<arr10.count {
+    if arr10[i] == 0 {
+        zeroCount += 1
+    } else {
+        temp1.append(arr10[i])
+    }
+}
+print(temp1)
+print(zeroCount)
+let zeroArr = Array(repeating: 0, count: zeroCount)
+let finalRes: [Int] = temp1 + zeroArr
+print("Sol8(a): zeroes to the end::mySol:", finalRes)
+
+// Move all the zeroes to the end of the Array OPTIMAL
+var arr11: [Int] = [0,1,0,3,12]
+var j: Int = -1
+j = arr11.firstIndex(of: 0) ?? -1
+for i in stride(from: j + 1, to: arr11.count, by: +1) {
+    if arr11[i] != 0 {
+        arr11.swapAt(i, j)
+        j += 1
+    }
+}
+print("Sol8(b): zeroes to the end::optimal:", arr11)
+
+// Linear search
+let arr12: [Int] = [6,7,8,4,1]
+let key: Int = 4
+
+for i in 0..<arr12.count {
+    if arr12[i] == key {
+        print("Found at index: \(i) --> Lib method:" + "\(String(describing: arr12.firstIndex(of: 4) ?? -1))")
+        break
+    }
+}
+
