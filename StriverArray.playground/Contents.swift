@@ -92,11 +92,35 @@ for j in 1..<arr6.count {
 }
 print("Sol5: Unique Sorted Array::", arr6)//resArr6
 
-// Rotate Array by 1 place
+// Left Rotate Array by 1 place
 var arr7 = [1,2,3,4,5]
 let firstElement = arr7[0]
 for i in 0..<arr7.count - 1 {
     arr7[i] = arr7[i + 1]
 }
 arr7[arr7.count - 1] = firstElement
-print(arr7)
+print("Sol6: Left rotate Array by 1 place::", arr7)
+
+// Left Rotate Array by k places
+var arr8: [Int] = [1,2,3,4,5]
+let k = 6
+let d = k % arr8.count
+var temp: [Int] = []
+for i in 0..<d {
+    temp.append(arr8[i])
+}
+
+for i in d..<arr8.count {
+    arr8[i - d] = arr8[i]
+}
+var resArr8 = arr8.dropLast(d)
+resArr8.append(contentsOf: temp)
+print("Sol7: Left rotate Array by K places::mySol:", resArr8)
+
+// Reverse an array
+var arr9: [Int] = [1,2,3,4,5]
+var reversedArray: [Int] = []
+for i in stride(from: arr9.count, to: 0, by: -1) {
+    reversedArray.append(arr9[i - 1])
+}
+print("REV::", reversedArray)
