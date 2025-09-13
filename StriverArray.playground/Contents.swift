@@ -123,7 +123,7 @@ var reversedArray: [Int] = []
 for i in stride(from: arr9.count, to: 0, by: -1) {
     reversedArray.append(arr9[i - 1])
 }
-print("REV::", reversedArray)
+print("*REV::", reversedArray)
 
 // Move all the zeroes to the end of the Array
 var arr10: [Int] = [0,1,0,3,12]
@@ -136,8 +136,6 @@ for i in 0..<arr10.count {
         temp1.append(arr10[i])
     }
 }
-print(temp1)
-print(zeroCount)
 let zeroArr = Array(repeating: 0, count: zeroCount)
 let finalRes: [Int] = temp1 + zeroArr
 print("Sol8(a): zeroes to the end::mySol:", finalRes)
@@ -160,8 +158,62 @@ let key: Int = 4
 
 for i in 0..<arr12.count {
     if arr12[i] == key {
-        print("Found at index: \(i) --> Lib method:" + "\(String(describing: arr12.firstIndex(of: 4) ?? -1))")
+        print("Sol9: Linear search Found at index: \(i) --> Lib method:" + "\(String(describing: arr12.firstIndex(of: 4) ?? -1))")
         break
     }
 }
 
+// Union of two sorted Arrays
+let arr13a: [Int] = [1,2,3,4,6]
+let arr13b: [Int] = [2,3,5]
+var unionArr: [Int] = [Int]()
+var ia: Int = 0
+var jb: Int = 0
+
+while (ia < arr13a.count && jb < arr13b.count) {
+    if arr13a[ia] <= arr13b[jb] {
+        if !unionArr.contains(arr13a[ia]) {
+            unionArr.append(arr13a[ia])
+        }
+        ia += 1
+    } else {
+        if !unionArr.contains(arr13b[jb]) {
+            unionArr.append(arr13b[jb])
+        }
+        jb += 1
+    }
+}
+while (ia < arr13a.count) {
+    if !unionArr.contains(arr13a[ia]) {
+        unionArr.append(arr13a[ia])
+    }
+    ia += 1
+}
+
+while (jb < arr13b.count) {
+    if !unionArr.contains(arr13b[jb]) {
+        unionArr.append(arr13b[jb])
+    }
+    jb += 1
+}
+print("Sol10: Union Array::", unionArr)
+
+// Intersection of sorted array
+let arr14a: [Int] = [1,2,2,3,3,4,5,6]
+let arr14b: [Int] = [2,3,3,5,6,6,7]
+var intersectionArr: [Int] = [Int]()
+var m: Int = 0
+var n: Int = 0
+
+while (m < arr14a.count && n < arr14b.count) {
+    if arr14a[m] < arr14b[n] {
+        m += 1
+    } else if arr14b[n] < arr14a[m] {
+        n += 1
+    } else {
+        intersectionArr.append(arr14a[m])
+        m += 1
+        n += 1
+    }
+}
+print("Sol11: Intersection Arr:", intersectionArr)
