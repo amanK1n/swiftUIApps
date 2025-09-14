@@ -21,3 +21,19 @@ heights["Alice"] = 160
 heights["Peter"] = 200
 
 print(heights["Alice"] ?? 0)
+
+// Set
+var nameSet = Set(["Aman", "Nikky", "Peter"])
+print(nameSet)
+print(type(of: nameSet))
+nameSet.insert("Daniel")
+let x = nameSet.sorted()
+print(x)
+print(type(of: x))
+var people = Set<String>()
+people.insert("Aman")
+people.insert("Nikky")
+people.insert("Peter")
+print(people)
+
+
