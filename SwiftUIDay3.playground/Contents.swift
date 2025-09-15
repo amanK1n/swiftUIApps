@@ -36,4 +36,8 @@ people.insert("Nikky")
 people.insert("Peter")
 print(people)
 
+// Type annotations
+var soda: [String] = ["Coke", "Pepsi", "Irn-Bru"]
+var teams: [String] = [String]()
+
 
