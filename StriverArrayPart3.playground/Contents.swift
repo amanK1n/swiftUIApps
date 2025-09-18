@@ -89,7 +89,7 @@ for (index, value) in arr4.enumerated() {
     
     if let j = indexDict[target - value] {
         print("\(index) and \(j)")
-    } 
+    }
     
     
     if indexDict[value] == nil {
