@@ -47,6 +47,53 @@ let sumClose = { (a: Int, b: Int) -> Int in
 }
 calcSum(sum: sumClose)
 
+// Generics
+func swap<T>(_ a: inout T,_ b: inout T) {
+    let temp = a
+    a = b
+    b = temp
+}
+var a = 10
+var b = 20
+swap(&a, &b)
+print("\(a) \(b)")
+
+// Generic struct
+struct Stack<T> {
+    var items: [T] = []
+    
+    mutating func push(_ item: T) {
+        items.append(item)
+    }
+    
+    mutating func pop() -> T? {
+        items.popLast()
+    }
+}
+
+var stack = Stack<Int>()
+stack.push(10)
+stack.push(20)
+stack.push(30)
+print(stack)
+print(stack.pop())
+
+// Generic func
+
+func findInArr<T: Equatable> (_ arr: [T], _ val: T) -> Int? {
+    for (index, value) in arr.enumerated() {
+        if value == val {
+            return index
+        }
+    }
+    return nil
+}
+let array = [10,20,30]
+let array2 = ["John", "Paul", "Saam"]
+print(findInArr(array, 20))
+print(findInArr(array2, "Saam"))
+
+
 
 
 
