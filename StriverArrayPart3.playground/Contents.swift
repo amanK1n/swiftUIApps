@@ -88,7 +88,7 @@ var indexDict: [Int : Int] = [Int : Int]()
 for (index, value) in arr4.enumerated() {
     
     if let j = indexDict[target - value] {
-        print("\(index) and \(j)")
+        print("Sol5: Two sum found at: \(j) and \(index)")
     }
     
     
@@ -96,3 +96,22 @@ for (index, value) in arr4.enumerated() {
         indexDict[value] = index
     }
 }
+// Two sum optimal: TWO POINTER
+var arr5 = [2,6,5,8,11]
+var arr5Sorted = arr5.sorted()
+let target1 = 14
+var left1 = 0
+var right1 = arr5.count - 1
+while left1 < right1 {
+    if arr5Sorted[left1] + arr5Sorted[right1] == target1 {
+        let oIndex1 = arr5.firstIndex(of: arr5Sorted[left1])!
+        let oIndex2 = arr5.firstIndex(of: arr5Sorted[right1])!
+        print("Sol6: Two sum optimal:: Index: \(oIndex1) & \(oIndex2) :=> \(arr5Sorted[left1]) & \(arr5Sorted[right1]) = \(target1)")
+        break
+    } else if arr5Sorted[left1] + arr5Sorted[right1] < target1 {
+        left1 += 1
+    } else {
+        right1 -= 1
+    }
+}
+
