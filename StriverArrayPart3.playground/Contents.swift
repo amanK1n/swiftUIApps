@@ -86,14 +86,11 @@ let target = 14
 var indexDict: [Int : Int] = [Int : Int]()
 
 for (index, value) in arr4.enumerated() {
-    
-    if let j = indexDict[target - value] {
-        print("Sol5: Two sum found at: \(j) and \(index)")
-    }
-    
-    
     if indexDict[value] == nil {
         indexDict[value] = index
+    }
+    if let j = indexDict[target - value] {
+        print("Sol5: Two sum found at: \(j) and \(index)")
     }
 }
 // Two sum optimal: TWO POINTER
@@ -114,4 +111,8 @@ while left1 < right1 {
         right1 -= 1
     }
 }
+
+// Sort an array of 0's, 1's & 2's
+var arr6 = [0,1,2,0,1,2,1,2,0,0,0,1]
+
 
