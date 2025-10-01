@@ -13,5 +13,8 @@ struct _2_GuessTheFlagApp: App {
         WindowGroup {
             ContentView()
         }
+        
+        
+        
     }
 }
