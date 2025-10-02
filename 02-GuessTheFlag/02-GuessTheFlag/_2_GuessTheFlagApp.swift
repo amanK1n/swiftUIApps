@@ -11,7 +11,7 @@ import SwiftUI
 struct _2_GuessTheFlagApp: App {
     var body: some Scene {
         WindowGroup {
-            ButtonView()
+            CustomAlertView()
         }
         
         
