@@ -16,7 +16,11 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-
+struct ButtonView: View {
+    var body: some View {
+            Text("Hello, World!")
+    }
+}
 struct ButtonView: View {
     var body: some View {
         /// Type-1
@@ -67,7 +71,6 @@ struct ButtonView: View {
         } label: {
             Label("Edit-9", systemImage: "pencil")
         }
-        
     }
     func execDlt() {
         print("Now deleting...2")
