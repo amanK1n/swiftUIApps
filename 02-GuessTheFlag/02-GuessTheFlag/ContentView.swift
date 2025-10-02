@@ -16,9 +16,17 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-struct ButtonView: View {
+struct CustomAlertView: View {
+    @State private var showingAlert = false
     var body: some View {
-            Text("Hello, World!")
+        Button("Show alert") {
+            showingAlert = true
+        }.buttonStyle(.bordered)
+            .alert("Important Message !!!", isPresented: $showingAlert) {
+                
+                Button("Deletois", role: .destructive) {}
+                Button("Cancelois", role: .cancel) {}
+            }
     }
 }
 struct ButtonView: View {
