@@ -14,12 +14,14 @@ struct ContentView: View {
 }
 
 struct ModifierOrderView: View {
+    @State private var useRedText = false
     var body: some View {
         VStack {
             Button("Hello, world!") {
                 print(type(of: self.body))
+                useRedText.toggle()
             }
-            .background(.red)
+            .background(useRedText ? .red : .green)
             .frame(width: 200, height: 200)
             Button("Hello, world!") {
                 print(type(of: self.body))
@@ -28,19 +30,19 @@ struct ModifierOrderView: View {
             .background(.blue)
             
             Text("Aman")
-                .background(.purple)
+                .background(useRedText ? .purple : .red)
                 .padding()
-                .background(.indigo)
+                .background(useRedText ? .indigo : .orange)
                 .padding()
-                .background(.blue)
+                .background(useRedText ? .blue : .yellow)
                 .padding()
-                .background(.green)
+                .background(useRedText ? .green : .green)
                 .padding()
-                .background(.yellow)
+                .background(useRedText ? .yellow : .blue)
                 .padding()
-                .background(.orange)
+                .background(useRedText ? .orange : .indigo)
                 .padding()
-                .background(.red)
+                .background(useRedText ? .red : .purple)
         }
     }
 }
