@@ -13,11 +13,33 @@ struct ContentView: View {
     }
 }
 
+struct EnvironmentView: View {
+    var body: some View {
+        VStack {
+            Text("Gryffindor")
+                .font(.largeTitle) // Overrides Environment modifier
+            Text("Hufflepuff")
+            Text("Ravenclaw")
+            Text("Slytherin")
+        }
+        .font(.title) // Environment modifier
+        
+        VStack {
+            Text("Gryffindor")
+                .blur(radius: 0) // No effect
+            Text("Hufflepuff")
+            Text("Ravenclaw")
+            Text("Slytherin")
+        }.blur(radius: 5) // Regular modifier
+    }
+}
+
+
 struct ModifierOrderView: View {
     @State private var useRedText = false
     var body: some View {
         VStack {
-            Button("Hello, world!") {
+            Button("Click mee!! see magic") {
                 print(type(of: self.body))
                 useRedText.toggle()
             }
