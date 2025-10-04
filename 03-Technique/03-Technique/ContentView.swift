@@ -6,10 +6,47 @@
 //
 
 import SwiftUI
+struct CapsuleText: View {
+    var text: String
 
+    var body: some View {
+        Text(text)
+            .font(.largeTitle)
+            .padding()
+            //.foregroundStyle(.white) // Remove this to customize color
+            .background(.blue)
+            .clipShape(.capsule)
+    }
+}
 struct ContentView: View {
     var body: some View {
         Text("kk")
+    }
+}
+
+struct ViewCompostionExamples: View {
+    var body: some View {
+        VStack(spacing: 10) {
+            Text("First")
+                .font(.largeTitle)
+                .padding()
+                .foregroundStyle(.white)
+                .background(.blue)
+                .clipShape(.capsule)
+            
+            Text("Second")
+                .font(.largeTitle)
+                .padding()
+                .foregroundStyle(.white)
+                .background(.blue)
+                .clipShape(.capsule)
+            // Below reduced redundancy
+            CapsuleText(text: "Aman")
+                .foregroundStyle(.mint)
+            CapsuleText(text: "Nikhat")
+                .foregroundStyle(.yellow)
+        }
+        
     }
 }
 
