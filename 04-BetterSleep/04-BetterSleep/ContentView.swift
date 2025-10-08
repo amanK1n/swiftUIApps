@@ -98,7 +98,6 @@ struct PracticeComponents: View {
         DatePicker("Please enter a date", selection: $wakeUp, in: Date.now...)
     }
 }
-
 #Preview {
     ContentView()
 }
