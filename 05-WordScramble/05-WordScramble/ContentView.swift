@@ -8,26 +8,95 @@
 import SwiftUI
 
 struct ContentView: View {
-    var people = ["AMAN", "NIKHAT"]
+    @State private var usedWords = [String]()
+    @State private var rootWord: String = "AMAN"
+    @State private var newWord: String = ""
+    @State private var errorTitle: String = ""
+    @State private var errorMessage: String = ""
+    @State private var showError: Bool = false
     var body: some View {
-        List {
-            Section("Aman") {
-                Text("Sayed")
-                Text("Sayed")
-            }
-            Section("NIKHAT") {
-                ForEach(0..<5) {
-                    Text("Dynamic Text \($0)")
+        NavigationStack {
+            List {
+                Section {
+                    TextField("Enter your word!", text: $newWord)
+                        .textInputAutocapitalization(.never)
                 }
-            }
-            Section("Fur itch") {
-                
-                ForEach(people, id: \.self) {
-                    Text($0)
+                Section {
+                    ForEach(usedWords, id: \.self) { word in
+                        HStack {
+                            Image(systemName: "\(word.count).circle.fill")
+                            Text(word)
+                        }
+                    }
                 }
-            }
-        }.listStyle(.grouped)
+            }.navigationTitle(rootWord)
+                .onSubmit(addNewWord)
+                .onAppear(perform: startGame)
+                .alert(errorTitle, isPresented: $showError) { } message: {
+                    Text(errorMessage)
+                }
+        }
     }
+    func addNewWord() {
+        let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+        guard answer.count > 0 else { return }
+        guard isOriginal(word: answer) else {
+            wordError(title: "Word used already", message: "Be more original")
+            return
+        }
+
+        guard isPossible(word: answer) else {
+            wordError(title: "Word not possible", message: "You can't spell that word from '\(rootWord)'!")
+            return
+        }
+
+        guard isReal(word: answer) else {
+            wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
+            return
+        }
+        
+        withAnimation {
+            usedWords.insert(answer, at: 0)
+        }
+        newWord = ""
+    }
+    
+    func startGame() {
+        if let wordDoc = Bundle.main.url(forResource: "start", withExtension: "txt") {
+            if let allWordsString = try? String(contentsOf: wordDoc) {
+                let allWords = allWordsString.components(separatedBy: "\n")
+                rootWord = allWords.randomElement() ?? "silkworm"
+                return
+            }
+        }
+        fatalError("Could not load start.txt from bundle.")
+    }
+    func isOriginal(word: String) -> Bool {
+        return !usedWords.contains(word)
+    }
+    func isPossible(word: String) -> Bool {
+        var tempWord = rootWord
+        for letter in word {
+            if let pos = tempWord.firstIndex(of: letter) {
+                tempWord.remove(at: pos)
+            } else {
+                return false
+            }
+        }
+        return true
+    }
+    func isReal(word: String) -> Bool {
+        let checker = UITextChecker()
+        let range = NSRange(location: 0, length: word.utf16.count)
+        let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+        return misspelledRange.location == NSNotFound
+    }
+    func wordError(title: String, message: String) {
+        errorTitle = title
+        errorMessage = message
+        showError = true
+    }
+    
 }
 
 
