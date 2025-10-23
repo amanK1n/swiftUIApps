@@ -32,9 +32,6 @@ struct ContentView: View {
          
         // .blur(radius: (animScale - 1) * 3)
         
-        
-        
-        
     }
 }
 
