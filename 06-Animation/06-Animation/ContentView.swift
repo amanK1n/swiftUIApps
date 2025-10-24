@@ -8,6 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var enabled = false
+    var body: some View {
+        Button("Tappuu mui !!eheh") {
+            enabled.toggle()
+        }
+        .frame(width: 200, height: 200)
+        .background(enabled ? Color.green : Color.red)
+        .foregroundStyle(.white)
+        .animation(.default, value: enabled)
+        .clipShape(.rect(cornerRadius: enabled ? 60 : 0))
+        .animation(.spring(duration: 1, bounce: 0.9), value: enabled)
+        
+    }
+}
+
+struct _3DAnimationButton: View {
     @State private var animationAmount = 0.0
     var body: some View {
         Button("Tappu mehhhh!!") {
@@ -21,8 +37,6 @@ struct ContentView: View {
             .rotation3DEffect(.degrees(animationAmount), axis: (x: 0, y: 1, z: 0))
     }
 }
-
-
 
 struct StepperButton: View {
     @State private var animationAmount = 1.0
