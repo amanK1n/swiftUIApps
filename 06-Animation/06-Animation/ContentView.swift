@@ -8,6 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var dragAmount = CGSize.zero
+    var body: some View {
+        LinearGradient(colors: [.yellow, .red], startPoint: .topLeading, endPoint: .bottomTrailing)
+            .frame(width: 300, height: 200)
+            .clipShape(.rect(cornerRadius: 10))
+            .offset(dragAmount)
+            .gesture(DragGesture()
+                .onChanged { dragAmount = $0.translation }
+                .onEnded({ _ in
+                    withAnimation(.bouncy) {   // anim applied only on return, easy to drag
+                        dragAmount = .zero
+                    }
+                })
+            )
+          //  .animation(.bouncy, value: dragAmount) /// HEAVY to drag, anim applied to strt end drag
+    }
+}
+
+
+struct WobbleButton: View {
     @State private var enabled = false
     var body: some View {
         Button("Tappuu mui !!eheh") {
@@ -22,7 +42,6 @@ struct ContentView: View {
         
     }
 }
-
 struct _3DAnimationButton: View {
     @State private var animationAmount = 0.0
     var body: some View {
