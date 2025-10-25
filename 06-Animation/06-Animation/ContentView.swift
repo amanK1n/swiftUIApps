@@ -7,7 +7,100 @@
 
 import SwiftUI
 
+
+struct CornerRotateModifier: ViewModifier {
+    let amount: Double
+    let anchor: UnitPoint
+    
+    func body(content: Content) -> some View {
+        content.rotationEffect(.degrees(amount), anchor: anchor)
+            .clipped()
+    }
+}
+
+extension AnyTransition {
+    static var pivot: AnyTransition {
+        .modifier(active: CornerRotateModifier(amount: -90, anchor: .topLeading), identity: CornerRotateModifier(amount: 0, anchor: .topLeading))
+    }
+}
+
+
+
 struct ContentView: View {
+    @State private var isRedShown: Bool = false
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .fill(.blue)
+                .frame(width: 200, height: 200)
+            
+            if isRedShown {
+                Rectangle()
+                    .fill(Color.red)
+                    .frame(width: 200, height: 200)
+                    .transition(.pivot)
+            }
+        }.onTapGesture {
+            withAnimation {
+                isRedShown.toggle()
+            }
+        }
+    }
+    
+}
+
+
+struct RectangleView: View {
+    @State private var isRed: Bool = false
+    var body: some View {
+        VStack {
+            Button("Tap me!!") {
+                withAnimation {
+                    isRed.toggle()
+                }
+            }
+            
+            if isRed {
+                Rectangle()
+                    .fill(Color.red)
+                    .frame(width: 200, height: 200)
+                    .transition(.scale)
+                
+            }
+        }
+    
+    }
+}
+
+
+struct SnakeLetters: View {
+    let letters = Array("Hello SwiftUI")
+    @State private var enabled = false
+    @State private var dragAmount: CGSize = .zero
+    var body: some View {
+        HStack(spacing: 0) {
+            ForEach(0..<letters.count, id: \.self) { num in
+                Text(String(letters[num]))
+                    .padding(5)
+                    .font(.title)
+                    .background(enabled ? .blue : .red)
+                    .offset(dragAmount)
+                    .animation(.linear.delay(Double(num) / 20), value: dragAmount)
+            }
+        }.gesture(
+            DragGesture()
+                .onChanged { dragAmount = $0.translation }
+                .onEnded { _ in
+                    dragAmount = .zero
+                    enabled.toggle()
+                }
+            
+        )
+    }
+}
+
+
+struct CardDrag: View {
     @State private var dragAmount = CGSize.zero
     var body: some View {
         LinearGradient(colors: [.yellow, .red], startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -25,8 +118,6 @@ struct ContentView: View {
           //  .animation(.bouncy, value: dragAmount) /// HEAVY to drag, anim applied to strt end drag
     }
 }
-
-
 struct WobbleButton: View {
     @State private var enabled = false
     var body: some View {
