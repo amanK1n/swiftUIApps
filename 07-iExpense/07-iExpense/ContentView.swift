@@ -8,6 +8,31 @@
 import SwiftUI
 import Observation
 struct ContentView: View {
+    var body: some View {
+        Text("")
+    }
+}
+
+struct AppStorDemo: View {
+    @AppStorage("tapCount") private var count = 0
+    var body: some View {
+        Button("Tap:=--> \(count)") {
+            count += 1
+        }
+    }
+}
+
+struct UserDefStore: View {
+    @State private var count = UserDefaults.standard.integer(forKey: "tap")
+    var body: some View {
+        Button("Tap:=--> \(count)") {
+            count += 1
+            UserDefaults.standard.set(count, forKey: "tap")
+        }
+    }
+}
+
+struct AddDelRow: View {
     @State private var numbers: [Int] = [Int]()
     @State private var currentNumber: Int = 1
     var body: some View {
@@ -34,7 +59,6 @@ struct ContentView: View {
         numbers.remove(atOffsets: at)
     }
 }
-
 
 
 struct ObsExample: View {
