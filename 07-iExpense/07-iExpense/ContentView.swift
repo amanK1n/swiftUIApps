@@ -6,10 +6,39 @@
 //
 
 import SwiftUI
-
+import Observation
 struct ContentView: View {
+    @State private var numbers: [Int] = [Int]()
+    @State private var currentNumber: Int = 1
+    var body: some View {
+        NavigationStack {
+            VStack {
+                List {
+                    ForEach(numbers, id: \.self) {
+                        Text("Row: \($0)")
+                    }
+                    .onDelete(perform: removeRow)
+                }
+                
+                
+                Button("Add number!") {
+                    numbers.append(currentNumber)
+                    currentNumber += 1
+                }
+            }.toolbar {
+                EditButton()
+            }
+        }
+    }
+    func removeRow(at: IndexSet) {
+        numbers.remove(atOffsets: at)
+    }
+}
+
+
+
+struct ObsExample: View {
     @State private var user = User()
-    
     var body: some View {
         VStack {
             Text("Your name is \(user.fname) \(user.lname)")
