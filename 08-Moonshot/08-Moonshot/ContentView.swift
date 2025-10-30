@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    let astronauts: [String : Astronaut] = Bundle.main.decode("astronauts.json")
+    let missions: [Mission] = Bundle.main.decode("missions.json")
     var body: some View {
-        Text("")
+        Text("Tots: \(astronauts.count) astronauts loaded.")
+        Text("Tots: \(missions.count) missions loaded.")
     }
 }
 
@@ -17,8 +20,8 @@ struct ContentView: View {
 struct AdaptiveGridExample: View {
     let layout = [GridItem(.adaptive(minimum: 80))]
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: layout) {
+        ScrollView(.horizontal) {
+            LazyHGrid(rows: layout) {
                 ForEach(0..<1000) {
                     Text("Text \($0)")
                 }

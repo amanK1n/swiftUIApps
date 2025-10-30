@@ -11,7 +11,7 @@ import SwiftUI
 struct _8_MoonshotApp: App {
     var body: some Scene {
         WindowGroup {
-            AdaptiveGridExample()
+            ContentView()
         }
     }
 }
