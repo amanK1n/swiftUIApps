@@ -13,6 +13,10 @@ struct ContentView: View {
     var body: some View {
         Text("Tots: \(astronauts.count) astronauts loaded.")
         Text("Tots: \(missions.count) missions loaded.")
+        
+        
+        
+        
     }
 }
 
