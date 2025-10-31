@@ -14,6 +14,9 @@ struct ContentView: View {
         GridItem(.adaptive(minimum: 150))
     ]
     
+    
+    
+    
     var body: some View {
        
         NavigationStack {
