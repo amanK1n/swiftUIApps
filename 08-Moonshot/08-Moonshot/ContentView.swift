@@ -10,10 +10,32 @@ import SwiftUI
 struct ContentView: View {
     let astronauts: [String : Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
+    let columns = [
+        GridItem(.adaptive(minimum: 150))
+    ]
+    
     var body: some View {
-        Text("Tots: \(astronauts.count) astronauts loaded.")
-        Text("Tots: \(missions.count) missions loaded.")
-        
+       
+        NavigationStack {
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                   
+                    ForEach(missions) { mission in
+                        VStack {
+                            Image(mission.image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .padding()
+                            
+                            Text(mission.displayName)
+                            
+                        }
+                    }
+                   
+                }
+            }
+        }
         
         
         
