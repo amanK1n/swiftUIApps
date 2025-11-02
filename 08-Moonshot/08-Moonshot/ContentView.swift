@@ -26,14 +26,19 @@ struct ContentView: View {
                                 .scaledToFit()
                                 .frame(width: 100, height: 100)
                                 .padding()
-                            
-                            Text(mission.displayName)
-                            
+                            VStack {
+                                Text(mission.displayName)
+                                    .font(.headline)
+                                
+                                Text(mission.launchDate ?? "N/A")
+                                    .font(.caption)
+                            }
+                            .frame(maxWidth: .infinity)
                         }
                     }
                    
                 }
-            }
+            }.navigationTitle("Moonshot!")
         }
         
         
