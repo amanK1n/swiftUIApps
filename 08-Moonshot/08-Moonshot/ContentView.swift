@@ -13,10 +13,6 @@ struct ContentView: View {
     let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
-    
-    
-    
-    
     var body: some View {
        
         NavigationStack {
