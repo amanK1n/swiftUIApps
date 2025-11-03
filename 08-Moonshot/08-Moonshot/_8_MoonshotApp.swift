@@ -11,7 +11,9 @@ import SwiftUI
 struct _8_MoonshotApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let mission: [Mission] = Bundle.main.decode("missions.json")
+            return MissionView(mission: mission[0])
+                .preferredColorScheme(.dark)
         }
     }
 }
