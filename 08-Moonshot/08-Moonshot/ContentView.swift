@@ -22,7 +22,7 @@ struct ContentView: View {
                     ForEach(missions) { mission in
                         
                         NavigationLink {
-                            Text("Detail for \(mission.displayName)")
+                            MissionView(mission: mission, astronauts: astronauts)
                         } label: {
                             
                             VStack {
