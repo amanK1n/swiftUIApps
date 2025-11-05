@@ -7,19 +7,16 @@
 
 import SwiftUI
 
-struct DetailsView: View {
-    var num: Int
-    var body: some View {
-        Text("Details \(num)")
-    }
-    init(num: Int) {
-        self.num = num
-        print("Creating DetailsView \(num)")
-    }
-}
+
 
 
 struct ContentView: View {
+    var body: some View {
+        Text("aaa")
+    }
+}
+
+struct Example1: View {
     var body: some View {
         NavigationStack {
             List(0..<200) { num in
@@ -32,6 +29,21 @@ struct ContentView: View {
         }
     }
 }
+
+
+struct DetailsView: View {
+    var num: Int
+    var body: some View {
+        Text("Details \(num)")
+    }
+    init(num: Int) {
+        self.num = num
+        print("Creating DetailsView \(num)")
+    }
+}
+
+
+
 
 #Preview {
     ContentView()
