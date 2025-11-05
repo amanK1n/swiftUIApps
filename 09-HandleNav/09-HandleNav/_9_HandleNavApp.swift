@@ -11,7 +11,7 @@ import SwiftUI
 struct _9_HandleNavApp: App {
     var body: some Scene {
         WindowGroup {
-            Example1()
+            Example4()
         }
     }
 }
