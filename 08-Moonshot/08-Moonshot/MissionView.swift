@@ -44,7 +44,7 @@ struct MissionView: View {
                         ForEach(crew, id: \.role) { crewMember in
                             
                             NavigationLink {
-                                Text("Assu details")
+                                AstronautView(astronaut: crewMember.astronaut)
                             } label: {
                                 
                                 
