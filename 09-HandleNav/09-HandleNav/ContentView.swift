@@ -15,14 +15,44 @@ struct ContentView: View {
 
 
 
+class PathStore {
+    var path: NavigationPath {
+        didSet {
+            save()
+        }
+    }
+    
+    private let savedPath = URL.documentsDirectory.appendingPathComponent("SavedPath")
+    init() {
+        if let data = try? Data(contentsOf: savedPath) {
+            if let decodePath = try? JSONDecoder().decode(NavigationPath.CodableRepresentation.self, from: data) {
+                path = NavigationPath(decodePath)
+                return
+            }
+        }
+        path = NavigationPath()
+    }
+    
+    func save() {
+        guard let repn = path.codable else { return }
+        do {
+             let data = try? JSONEncoder().encode(repn)
+            try data?.write(to: savedPath)
+        } catch {
+            print("Failed to decode!!")
+        }
+    }
+    
+}
+
 
 struct Example5: View {
-    @State private var path = NavigationPath() //[Int]()
+    @State private var pathStore = PathStore()//NavigationPath() //[Int]()
     var body: some View {
-        NavigationStack(path: $path) {
-            DetailViewExp5(number: 0, path: $path)
+        NavigationStack(path: $pathStore.path) {
+            DetailViewExp5(number: 0, path: $pathStore.path)
                 .navigationDestination(for: Int.self) { i in
-                    DetailViewExp5(number: i,path: $path)
+                    DetailViewExp5(number: i,path: $pathStore.path)
                 }
         }
     }

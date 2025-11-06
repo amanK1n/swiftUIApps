@@ -14,8 +14,8 @@
             filePath = "09-HandleNav/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "09-HandleNav/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -46,82 +46,10 @@
             filePath = "09-HandleNav/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "DetailViewExp5"
             landmarkType = "14">
-            <Locations>
-               <Location
-                  uuid = "F38D8D9E-BF8C-44D7-B7F1-F31CA9C9D32C - f821a8e6ba83639"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "_9_HandleNav.DetailViewExp5.path.getter : Swift.Array&lt;Swift.Int&gt;"
-                  moduleName = "09-HandleNav.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/comviva/Desktop/allSwift/swiftUIApps/09-HandleNav/09-HandleNav/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0">
-               </Location>
-               <Location
-                  uuid = "F38D8D9E-BF8C-44D7-B7F1-F31CA9C9D32C - 3ed5709320f3e2b7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "_9_HandleNav.DetailViewExp5.path.setter : Swift.Array&lt;Swift.Int&gt;"
-                  moduleName = "09-HandleNav.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/comviva/Desktop/allSwift/swiftUIApps/09-HandleNav/09-HandleNav/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34">
-               </Location>
-               <Location
-                  uuid = "F38D8D9E-BF8C-44D7-B7F1-F31CA9C9D32C - b0c6abb76fcc8e95"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "_9_HandleNav.DetailViewExp5.path.modify : Swift.Array&lt;Swift.Int&gt;"
-                  moduleName = "09-HandleNav.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/comviva/Desktop/allSwift/swiftUIApps/09-HandleNav/09-HandleNav/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34">
-               </Location>
-               <Location
-                  uuid = "F38D8D9E-BF8C-44D7-B7F1-F31CA9C9D32C - bc0cb66295c73bf3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "_9_HandleNav.DetailViewExp5.path.modify : Swift.Array&lt;Swift.Int&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "09-HandleNav.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///%3Ccompiler-generated%3E"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0">
-               </Location>
-               <Location
-                  uuid = "F38D8D9E-BF8C-44D7-B7F1-F31CA9C9D32C - 4f623e26b618f091"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "_9_HandleNav.DetailViewExp5.$path.getter : SwiftUI.Binding&lt;Swift.Array&lt;Swift.Int&gt;&gt;"
-                  moduleName = "09-HandleNav.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/comviva/Desktop/allSwift/swiftUIApps/09-HandleNav/09-HandleNav/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
