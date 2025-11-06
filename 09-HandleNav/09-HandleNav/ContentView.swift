@@ -14,6 +14,37 @@ struct ContentView: View {
 }
 
 
+
+
+struct Example5: View {
+    @State private var path = NavigationPath() //[Int]()
+    var body: some View {
+        NavigationStack(path: $path) {
+            DetailViewExp5(number: 0, path: $path)
+                .navigationDestination(for: Int.self) { i in
+                    DetailViewExp5(number: i,path: $path)
+                }
+        }
+    }
+}
+
+
+struct DetailViewExp5: View {
+    var number: Int
+    @Binding var path: NavigationPath//[Int]
+    var body: some View {
+        NavigationLink("Go to random page number", value: Int.random(in: 1...1000))
+            .navigationTitle("Rando number \(number)")
+            .toolbar {
+                Button("Home") {
+                    path = NavigationPath()// path.removeAll()
+                }
+            }
+    }
+}
+
+
+
 struct Example4: View {
     @State private var path = NavigationPath() // Type Eraser tsakes multiple values of hashable data
     var body: some View {
