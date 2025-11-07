@@ -22,6 +22,9 @@ class PathStore {
         }
     }
     
+    
+    
+    
     private let savedPath = URL.documentsDirectory.appendingPathComponent("SavedPath")
     init() {
         if let data = try? Data(contentsOf: savedPath) {
@@ -32,6 +35,10 @@ class PathStore {
         }
         path = NavigationPath()
     }
+    
+    
+    
+    
     
     func save() {
         guard let repn = path.codable else { return }
