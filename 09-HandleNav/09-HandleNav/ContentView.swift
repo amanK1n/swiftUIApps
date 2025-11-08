@@ -22,9 +22,6 @@ class PathStore {
         }
     }
     
-    
-    
-    
     private let savedPath = URL.documentsDirectory.appendingPathComponent("SavedPath")
     init() {
         if let data = try? Data(contentsOf: savedPath) {
