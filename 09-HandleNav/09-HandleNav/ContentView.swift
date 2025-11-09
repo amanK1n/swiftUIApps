@@ -33,10 +33,6 @@ class PathStore {
         path = NavigationPath()
     }
     
-    
-    
-    
-    
     func save() {
         guard let repn = path.codable else { return }
         do {
