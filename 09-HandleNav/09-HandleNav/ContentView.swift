@@ -14,7 +14,7 @@ struct ContentView: View {
 }
 
 
-
+@Observable
 class PathStore {
     var path: NavigationPath {
         didSet {
