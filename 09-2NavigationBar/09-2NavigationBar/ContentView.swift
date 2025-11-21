@@ -9,9 +9,25 @@ import SwiftUI
 import Foundation
 struct ContentView: View {
     var body: some View {
-        Example2()
+        Example3()
     }
 }
+
+struct Example3: View {
+   
+    @AppStorage("titleBarName") private var title = "Hello, World!"
+    var body: some View {
+        NavigationStack {
+            Text("Hello Aman!")
+                .navigationTitle($title)
+                .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+}
+
+
+
+
 struct Example2: View {
     var body: some View {
         NavigationStack {
