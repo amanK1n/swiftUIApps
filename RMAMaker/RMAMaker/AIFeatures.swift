@@ -55,7 +55,7 @@ private func capitalize(_ text: String) -> String {
 
 final class GeminiService {
 
-    private let apiKey = "{your api key}"
+    private let apiKey = "{AIzaSyB007sPvGSzPK6B9jq0GEVz00_Sk5vgwj0}"
 
     func analyzeJSON(input: String, completion: @escaping (String) -> Void) {
 
