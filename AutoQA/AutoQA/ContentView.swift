@@ -114,19 +114,8 @@ struct ContentView: View {
     func generateTestCases() {
         isLoading = true
         
-        let apiKey = "your_api_key"
-        // After scanning is done from accurascan, this page will be filled with user data and doc images
-        //        let imagesPayload = screenshots.compactMap { item -> [String: Any]? in
-        //            guard let base64 = imageToBase64(item.image) else { return nil }
-        //
-        //            return [
-        //
-        //                "inline_data": [
-        //                    "mime_type": "image/png",
-        //                    "data": base64
-        //                ]
-        //            ]
-        //        }
+        let apiKey = ""
+       
         
         let imagesPayload: [[String: Any]] = screenshots.compactMap { item -> [[String: Any]]? in
             guard let base64 = imageToBase64(item.image) else { return nil }
@@ -145,12 +134,6 @@ struct ContentView: View {
                 ]
             ]
         }.flatMap { $0 }
-        
-        
-        
-        
-        
-        
         
         let descriptions = screenshots.map { $0.description }.joined(separator: "\n")
         
