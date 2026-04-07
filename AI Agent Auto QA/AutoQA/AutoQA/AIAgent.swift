@@ -62,6 +62,9 @@ class AIAgent: ObservableObject {
 
         let apiKey = ""
 
+        
+        
+        
         let imagesPayload: [[String: Any]] = screenshots.compactMap { item -> [[String: Any]]? in
             guard let base64 = imageToBase64(item.image) else { return nil }
             return [
