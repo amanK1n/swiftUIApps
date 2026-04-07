@@ -8,6 +8,7 @@
 import Foundation
 import AppKit
 internal import Combine
+import SwiftUI
 enum AgentAction {
     case generate
     case export
@@ -23,12 +24,24 @@ class AIAgent: ObservableObject {
     var isLoading: ((Bool) -> Void)?
     var running = true
     var hasGenerated = false
-    init() {}
+    @Published public var showError = false
+    @Published public var errorMessage = ""
+    @Published public var showAPIKeyPopup = false
+    init() {
+        loadFonts()
+    }
     func decide() -> AgentAction {
         if !hasGenerated {
             return .generate
         } else {
             return .export
+        }
+    }
+    func loadFonts() {
+        let fontURLs = Bundle.main.urls(forResourcesWithExtension: "ttf", subdirectory: nil) ?? []
+        
+        for url in fontURLs {
+            CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
         }
     }
 
@@ -57,14 +70,25 @@ class AIAgent: ObservableObject {
     // MARK: - Gemini Call
 
     func generateTestCases() async {
+        print("hasGenerated::", hasGenerated)
+        print("screenshots::", screenshots.isEmpty)
         guard !hasGenerated else { return }
-        guard !screenshots.isEmpty else { return }
+        guard !screenshots.isEmpty else { isLoading?(false)
+            return
+        }
 
-        let apiKey = ""
+        print("key::", APIKeyManager.get())
+        
+        guard let apiKey = APIKeyManager.get(), !apiKey.isEmpty else {
+              DispatchQueue.main.async {
+                  self.showAPIKeyPopup = true
+                  print("self.showAPIKeyPopup::", self.showAPIKeyPopup)
+              }
+            
+            isLoading?(false)
+              return
+          }
 
-        
-        
-        
         let imagesPayload: [[String: Any]] = screenshots.compactMap { item -> [[String: Any]]? in
             guard let base64 = imageToBase64(item.image) else { return nil }
             return [
@@ -80,7 +104,6 @@ class AIAgent: ObservableObject {
         Feature: \(featureName)
         Descriptions: \(descriptions)
         Return output strictly in JSON array format:
-        "title" should contain title ONLY, NOT type(positive/negative/edge)
         [
          {
            "title": "",
@@ -89,6 +112,9 @@ class AIAgent: ObservableObject {
            "type": "positive/negative/edge"
          }
         ]
+        Ensure:
+        - "title": Title of the test case only. Do NOT include type (positive/negative/edge) in this field.
+        - "type": Must contain only ONE word — either "positive", "negative", or "edge".
         """
 
         let body: [String: Any] = [
@@ -97,8 +123,9 @@ class AIAgent: ObservableObject {
             ]]
         ]
 
-        guard let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=\(apiKey)") else { return }
+        guard let url = URL(string: "https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?ke=\(apiKey)") else { return }
         
+        print("complete URL::", url)
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = 120   // 2 minutes
         config.timeoutIntervalForResource = 180  // 3 minutes
@@ -115,12 +142,23 @@ class AIAgent: ObservableObject {
             print("FETCHED DATA:++LL")
             dump(data)
             if let httpResponse = response as? HTTPURLResponse {
-                    if !(200...299).contains(httpResponse.statusCode) {
-                        isLoading?(false)
-                        print("❌ HTTP Error:", httpResponse.statusCode)
-                        print(String(data: data, encoding: .utf8) ?? "")
-                        return
+                if !(200...299).contains(httpResponse.statusCode) {
+                    isLoading?(false)
+                    var apiMessage = "Something went wrong"
+                    print("❌ HTTP Error:", httpResponse.statusCode)
+                    print(String(data: data, encoding: .utf8) ?? "")
+                    if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+                       let error = json["error"] as? [String: Any],
+                       let message = error["message"] as? String {
+                        apiMessage = message
                     }
+                    DispatchQueue.main.async {
+                        self.showError = true
+                        var errorCode = "Error Code: \(httpResponse.statusCode) \n"
+                        self.errorMessage = errorCode + apiMessage
+                    }
+                    return
+                }
                 }
             if let text = parseGeminiResponse(data: data) {
                 print("Enter to parse")
@@ -185,10 +223,19 @@ class AIAgent: ObservableObject {
         return "\"\(escaped)\""
     }
     func exportCSV() {
-        var csv = "Title,Steps,Expected Result,Type\n"
+        var csv = "Test Case ID,Test Scenario,Test Steps,Expected Result,Polarity\n"
         print("ROW#::ExportCSSVV--")
         print(self.testCases.count)
+        var testNo: String = ""
+        var testSerial: String = ""
+        var count: Int = 000
         for test in testCases {
+            count += 1
+           // testNo = "TC_" + "\(count)"
+            testNo = String(format: "TC_%03d", count)
+            testSerial = testNo + "\n"
+            let testSerialFormatted = testSerial.replacingOccurrences(of: "\n", with: "\r\n")
+            let testSerial = escapeCSV(testSerialFormatted)
             let title = escapeCSV(test.title)
             
             let stepsFormatted = test.steps.replacingOccurrences(of: "\n", with: "\r\n")
@@ -198,7 +245,7 @@ class AIAgent: ObservableObject {
             let expected = escapeCSV(expectedFormatted)
             let type = escapeCSV(test.type)
 
-            csv += "\(title),\(steps),\(expected),\(type)\n"
+            csv += "\(testSerial),\(title),\(steps),\(expected),\(type)\n"
         }
 
         let savePanel = NSSavePanel()
