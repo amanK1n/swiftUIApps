@@ -38,12 +38,10 @@ struct TestCase: Identifiable, Codable {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-
         self.title = try container.decodeIfPresent(String.self, forKey: .title) ?? ""
         self.steps = try container.decodeIfPresent(String.self, forKey: .steps) ?? ""
         self.expectedResult = try container.decodeIfPresent(String.self, forKey: .expectedResult) ?? ""
         self.type = try container.decodeIfPresent(String.self, forKey: .type) ?? ""
-
         self.id = UUID() // 🔥 generate locally
     }
 }
