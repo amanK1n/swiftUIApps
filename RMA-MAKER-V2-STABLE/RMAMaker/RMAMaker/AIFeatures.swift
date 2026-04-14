@@ -54,9 +54,9 @@ private func capitalize(_ text: String) -> String {
 }
 
 final class GeminiService {
-    
-    func analyzeJSON(input: String, completion: @escaping (String) -> Void) {
-        guard let apiKey = APIKeyManager.get(), !apiKey.isEmpty else {
+    func analyzeJSON(input: String, onMissingAPIKey: @escaping (() -> Void) , completion: @escaping (String) -> Void) {
+        guard let apiKey = APIKeyManager.get(), !apiKey.isEmpty, apiKey.count > 10 else {
+            onMissingAPIKey()
             return
         }
         let urlString = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=\(apiKey)"
