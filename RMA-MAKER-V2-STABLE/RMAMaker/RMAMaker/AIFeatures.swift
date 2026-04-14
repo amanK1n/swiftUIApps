@@ -54,11 +54,11 @@ private func capitalize(_ text: String) -> String {
 }
 
 final class GeminiService {
-
-    private let apiKey = "AIzaSyDr8hbHLUp82NZpxSMp14Ntx_8t5dH94Ks"
-
+    
     func analyzeJSON(input: String, completion: @escaping (String) -> Void) {
-
+        guard let apiKey = APIKeyManager.get(), !apiKey.isEmpty else {
+            return
+        }
         let urlString = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=\(apiKey)"
         
         guard let url = URL(string: urlString) else {

@@ -8,7 +8,7 @@
 import SwiftUI
 internal import Combine
 enum AppTheme: String {
-    case system, light, dark
+    case light, dark
 }
 
 struct ContentView: View {
@@ -19,21 +19,10 @@ struct ContentView: View {
     @State private var aiAnalysisResult: String = ""
     @State private var isLoading = false
     @State private var folderURL: URL?
-    @State private var selectedTheme: AppTheme = .system
     @Environment(\.colorScheme) private var systemScheme
-    @State private var refreshID = UUID()
     @StateObject private var themeManager = ThemeManager()
-    
-    var effectiveScheme: ColorScheme? {
-        switch selectedTheme {
-        case .system:
-            return systemScheme
-        case .light:
-            return .light
-        case .dark:
-            return .dark
-        }
-    }
+    @State public var showAPIKeyPopup = false
+
     init() {
         loadFonts()
     }
@@ -56,15 +45,21 @@ struct ContentView: View {
                         }
                         
                         Spacer()
-                        
-                            
                             HStack {
-                                //Button("System") { themeManager.theme = .system }
-                                Button("Light")  { themeManager.theme = .light }
-                                Button("Dark")   { themeManager.theme = .dark }
+                                Button(action: {
+                                    print("key::", APIKeyManager.get() ?? "")
+                                    showAPIKeyPopup = true
+                                    print("api key clicked")
+                                }) {
+                                    Text("API Key")
+                                }
+                                Button("☀") {
+                                    themeManager.theme = .light
+                                }
+                                Button("⏾") {
+                                    themeManager.theme = .dark
+                                }
                             }
-                        
-                        .preferredColorScheme(effectiveScheme)
                         ZStack {
                             Image(systemScheme == .dark ? "logo_white_text" : "logo_black_text")
                                 .frame(height: 0)
@@ -227,29 +222,19 @@ struct ContentView: View {
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-      
         .disabled(isLoading)
         .animation(.easeInOut, value: isLoading)
         .environmentObject(themeManager)
         .preferredColorScheme(themeManager.colorScheme)
+        .overlay (
+            
+            APIKeyPromptView(isPresented: $showAPIKeyPopup) { key in
+                APIKeyManager.save(key)
+            }
+        )
     }
-    func themeButton(title: String, theme: AppTheme) -> some View {
-        Button(title) {
-            setTheme(theme)
-        }
-        .padding()
-        .background(selectedTheme == theme ? Color.blue : Color.gray.opacity(0.2))
-        .foregroundColor(selectedTheme == theme ? .white : .primary)
-        .cornerRadius(8)
-    }
-    func setTheme(_ theme: AppTheme) {
-        selectedTheme = theme
-        
-        // 👇 Force full UI refresh
-        DispatchQueue.main.async {
-            refreshID = UUID()
-        }
-    }
+    
+    
   
     func openFolder(at url: URL) {
         
@@ -278,11 +263,10 @@ struct ContentView: View {
 }
 class ThemeManager: ObservableObject {
     
-    @Published var theme: AppTheme = .system
+    @Published var theme: AppTheme = .dark
     
     var colorScheme: ColorScheme? {
         switch theme {
-        case .system: return nil
         case .light: return .light
         case .dark: return .dark
         }
