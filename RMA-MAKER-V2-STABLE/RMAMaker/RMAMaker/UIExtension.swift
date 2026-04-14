@@ -361,270 +361,6 @@ private func generateFileHeader(fileName: String) -> String {
 }
 
 
-
-
-
-
-
-
-
-struct LightningBoltShape: Shape {
-    func path(in rect: CGRect) -> Path {
-        let w = rect.width
-        let h = rect.height
-        var path = Path()
-
-        path.move(to: CGPoint(x: w * 0.55, y: 0))
-        path.addLine(to: CGPoint(x: w * 0.25, y: h * 0.45))
-        path.addLine(to: CGPoint(x: w * 0.48, y: h * 0.45))
-        path.addLine(to: CGPoint(x: w * 0.35, y: h * 0.72))
-        path.addLine(to: CGPoint(x: w * 0.52, y: h * 0.72))
-        path.addLine(to: CGPoint(x: w * 0.42, y: h))
-        path.addLine(to: CGPoint(x: w * 0.78, y: h * 0.52))
-        path.addLine(to: CGPoint(x: w * 0.55, y: h * 0.52))
-        path.addLine(to: CGPoint(x: w * 0.68, y: h * 0.28))
-        path.addLine(to: CGPoint(x: w * 0.52, y: h * 0.28))
-        path.closeSubpath()
-
-        return path
-    }
-}
-
-// MARK: - Thunder Loader View
-
-struct ThunderLoaderView: View {
-    @State private var boltOpacity: Double = 0
-    @State private var glowRadius: CGFloat = 0
-    @State private var screenFlash: Double = 0
-    @State private var boltScale: CGFloat = 1.0
-    @State private var isAnimating = false
-    @State private var loadingText = "Loading"
-    @State private var dotCount = 0
-
-    private let boltGradient = LinearGradient(
-        colors: [
-            Color(red: 0.75, green: 0.85, blue: 1.0),
-            Color(red: 0.55, green: 0.70, blue: 1.0),
-            Color.white
-        ],
-        startPoint: .top,
-        endPoint: .bottom
-    )
-
-    var body: some View {
-        ZStack {
-            backgroundLayer
-            screenIlluminationPulse
-            boltLayer
-            loadingLabel
-        }
-        .frame(minWidth: 480, minHeight: 400)
-        .onAppear { startThunderCycle() }
-    }
-
-    // MARK: - Background
-
-    private var backgroundLayer: some View {
-        ZStack {
-            Color(red: 0.04, green: 0.04, blue: 0.08)
-
-            RadialGradient(
-                colors: [
-                    Color(red: 0.08, green: 0.08, blue: 0.18).opacity(0.6),
-                    Color.clear
-                ],
-                center: .center,
-                startRadius: 20,
-                endRadius: 300
-            )
-        }
-        .ignoresSafeArea()
-    }
-
-    // MARK: - Screen Illumination Pulse
-
-    private var screenIlluminationPulse: some View {
-        RadialGradient(
-            colors: [
-                Color(red: 0.5, green: 0.6, blue: 1.0).opacity(screenFlash * 0.35),
-                Color(red: 0.3, green: 0.4, blue: 0.9).opacity(screenFlash * 0.15),
-                Color.clear
-            ],
-            center: .center,
-            startRadius: 0,
-            endRadius: 400
-        )
-        .ignoresSafeArea()
-    }
-
-    // MARK: - Lightning Bolt
-
-    private var boltLayer: some View {
-        VStack(spacing: 24) {
-            ZStack {
-                // Outer diffuse glow
-                LightningBoltShape()
-                    .fill(Color(red: 0.4, green: 0.55, blue: 1.0))
-                    .frame(width: 90, height: 160)
-                    .blur(radius: glowRadius * 1.8)
-                    .opacity(boltOpacity * 0.5)
-
-                // Mid glow ring
-                LightningBoltShape()
-                    .fill(Color(red: 0.6, green: 0.75, blue: 1.0))
-                    .frame(width: 90, height: 160)
-                    .blur(radius: glowRadius * 0.9)
-                    .opacity(boltOpacity * 0.7)
-
-                // Core bolt
-                LightningBoltShape()
-                    .fill(boltGradient)
-                    .frame(width: 90, height: 160)
-                    .shadow(color: Color.white.opacity(boltOpacity), radius: glowRadius * 0.4)
-                    .opacity(boltOpacity)
-                    .scaleEffect(boltScale)
-
-                // Hot white center overlay
-                LightningBoltShape()
-                    .fill(Color.white)
-                    .frame(width: 70, height: 130)
-                    .blur(radius: 2)
-                    .opacity(boltOpacity * 0.6)
-                    .scaleEffect(boltScale)
-            }
-        }
-        .offset(y: -30)
-    }
-
-    // MARK: - Loading Text
-
-    private var loadingLabel: some View {
-        VStack {
-            Spacer()
-            Text(loadingText)
-                .font(.system(size: 15, weight: .medium, design: .monospaced))
-                .foregroundStyle(
-                    Color.white.opacity(0.35 + screenFlash * 0.5)
-                )
-                .shadow(
-                    color: Color(red: 0.5, green: 0.6, blue: 1.0).opacity(screenFlash * 0.6),
-                    radius: 8
-                )
-                .padding(.bottom, 60)
-                .onAppear { animateDots() }
-        }
-    }
-
-    // MARK: - Animation Engine
-
-    private func startThunderCycle() {
-        guard !isAnimating else { return }
-        isAnimating = true
-        scheduleStrike()
-    }
-
-    private func scheduleStrike() {
-        let delay = Double.random(in: 0.6...2.0)
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-            performStrike()
-        }
-    }
-
-    private func performStrike() {
-        let burstCount = Int.random(in: 2...4)
-        var totalTime: Double = 0
-
-        for i in 0..<burstCount {
-            let flickerDelay = totalTime
-            let onDuration = Double.random(in: 0.04...0.12)
-            let offDuration = (i < burstCount - 1)
-                ? Double.random(in: 0.06...0.18)
-                : 0.0
-            let intensity = (i == burstCount - 1) ? 1.0 : Double.random(in: 0.4...0.8)
-            let scaleJitter = CGFloat.random(in: 0.97...1.04)
-
-            // Flash ON
-            DispatchQueue.main.asyncAfter(deadline: .now() + flickerDelay) {
-                withAnimation(.easeIn(duration: 0.02)) {
-                    boltOpacity = intensity
-                    glowRadius = CGFloat(intensity) * 30
-                    screenFlash = intensity * 0.9
-                    boltScale = scaleJitter
-                }
-            }
-
-            // Flash OFF
-            DispatchQueue.main.asyncAfter(deadline: .now() + flickerDelay + onDuration) {
-                withAnimation(.easeOut(duration: 0.08)) {
-                    boltOpacity = 0
-                    glowRadius = 0
-                    screenFlash = 0
-                    boltScale = 1.0
-                }
-            }
-
-            totalTime += onDuration + offDuration
-        }
-
-        // Afterglow: brief residual illumination
-        DispatchQueue.main.asyncAfter(deadline: .now() + totalTime + 0.05) {
-            withAnimation(.easeOut(duration: 0.5)) {
-                screenFlash = 0.12
-            }
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + totalTime + 0.3) {
-            withAnimation(.easeOut(duration: 0.7)) {
-                screenFlash = 0
-            }
-        }
-
-        // Schedule next strike
-        DispatchQueue.main.asyncAfter(deadline: .now() + totalTime + 0.3) {
-            scheduleStrike()
-        }
-    }
-
-    private func animateDots() {
-        Timer.scheduledTimer(withTimeInterval: 0.45, repeats: true) { _ in
-            dotCount = (dotCount + 1) % 4
-            loadingText = "Loading" + String(repeating: ".", count: dotCount)
-        }
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 struct AILoaderView: View {
 
     @State private var animate = false
@@ -732,5 +468,36 @@ extension Color {
             blue: Double(b) / 255,
             opacity: 1
         )
+    }
+}
+struct APIKeyPromptView: View {
+    
+    @Binding var isPresented: Bool
+    @State private var enteredAPIKey: String = ""
+    @Environment(\.openURL) var openURL
+    var onSave: ((String) -> Void)?
+    
+    var body: some View {
+        EmptyView()
+            .alert("Enter API Key", isPresented: $isPresented) {
+                
+                TextField("API Key", text: $enteredAPIKey)
+                
+                Button("Save") {
+                    if !enteredAPIKey.isEmpty {
+                        onSave?(enteredAPIKey.trimmingCharacters(in: .whitespacesAndNewlines))
+                    }
+                }
+                
+                
+
+                Button("Generate API Key") {
+                    if let url = URL(string: "https://aistudio.google.com/api-keys") {
+                        openURL(url)
+                    }
+                }
+                
+                Button("Cancel", role: .cancel) {}
+            }
     }
 }
