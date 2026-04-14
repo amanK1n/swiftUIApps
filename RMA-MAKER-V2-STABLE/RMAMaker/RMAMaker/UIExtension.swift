@@ -19,11 +19,11 @@ struct MainContentView: View {
             Button {
                 if !requestJSON.isEmpty {
                     let cleaned = MainContentView.normalizeQuotes(requestJSON)
-                    requestJSON = beautifyJSON(cleaned)
+                    requestJSON = MainContentView.beautifyJSON(cleaned)
                 }
                 if !responseJSON.isEmpty {
                     let cleaned = MainContentView.normalizeQuotes(responseJSON)
-                    responseJSON = beautifyJSON(cleaned)
+                    responseJSON = MainContentView.beautifyJSON(cleaned)
                 }
             } label: {
                 Label("Beautify All", systemImage: "sparkles")
@@ -38,7 +38,7 @@ struct MainContentView: View {
               .replacingOccurrences(of: "‘", with: "'")
               .replacingOccurrences(of: "’", with: "'")
       }
-    func beautifyJSON(_ jsonString: String) -> String {
+    public static func beautifyJSON(_ jsonString: String) -> String {
         guard let data = jsonString.data(using: .utf8) else { return jsonString }
         
         do {
@@ -106,18 +106,21 @@ public struct ActionButtonsView: View {
     @Binding var folderURL: URL?
     private let service = GeminiService()
     @State private var showToast = false
+    @Binding public var showAPIKeyPopup: Bool
     public var body: some View {
         // MARK: - Action Buttons
 
             HStack(spacing: 12) {
                 
-                Button(action: {generateAndSaveFiles(requestJSON: requestJSON,
+                Button(action: {
+                    
+                    
+                    generateAndSaveFiles(requestJSON: requestJSON,
                                                      responseJSON: responseJSON,
                                                      outputCode: &outputCode,
                                                      rootName: rootName,
-                                                     folderURL: &folderURL)}
-                       
-                       
+                                                     folderURL: &folderURL)
+                }
                 ) {
                     Label("Generate & Save", systemImage: "gearshape.fill")
                         .padding(.horizontal)
@@ -148,7 +151,10 @@ public struct ActionButtonsView: View {
                             isLoading = true
                             aiAnalysisResult = ""
                             
-                            service.analyzeJSON(input: responseJSON) { response in
+                            service.analyzeJSON(input: responseJSON, onMissingAPIKey: {
+                                showAPIKeyPopup = true
+                                isLoading = false
+                            }) { response in
                                 DispatchQueue.main.async {
                                     self.aiAnalysisResult = response
                                     self.isLoading = false
@@ -248,10 +254,12 @@ public struct ActionButtonsView: View {
 
 public func generateAndSaveFiles(requestJSON: String, responseJSON: String, outputCode: inout String, rootName: String, folderURL: inout URL?) {
     let requestCleaned = MainContentView.normalizeQuotes(requestJSON)
+    let requestBeautified = MainContentView.beautifyJSON(requestCleaned)
     let responseCleaned = MainContentView.normalizeQuotes(responseJSON)
+    let responseBeautified = MainContentView.beautifyJSON(responseCleaned)
     
-    guard let requestData = requestCleaned.data(using: .utf8),
-          let responseData = responseCleaned.data(using: .utf8) else {
+    guard let requestData = requestBeautified.data(using: .utf8),
+          let responseData = responseBeautified.data(using: .utf8) else {
         outputCode = "Invalid JSON Encoding"
         return
     }

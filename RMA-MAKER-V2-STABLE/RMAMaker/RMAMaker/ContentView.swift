@@ -179,7 +179,8 @@ struct ContentView: View {
                         responseJSON: $responseJSON,
                         aiAnalysisResult: $aiAnalysisResult,
                         isLoading: $isLoading,
-                        folderURL: $folderURL
+                        folderURL: $folderURL,
+                        showAPIKeyPopup: $showAPIKeyPopup
                     )
                     
                     // MARK: - Output Header
