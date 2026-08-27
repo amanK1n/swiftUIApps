@@ -8,19 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var name: String = String()
+   
     var body: some View {
-        VStack {
-            TextField("Enter your name", text: $name)
-            Button("Login") {
-                print("Hello \(name)")
-            }.disabled(name.count < 4)
+        NavigationStack {
+
+            NavigationLink(destination: Screen1()) {
+                Text("Go to Screen 1")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .frame(minWidth: 50, maxWidth: 200, minHeight: 20, maxHeight: 20, alignment: .center)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
             
-            Button(action: {
-                debugPrint("Hello \(name) signup")
-            }, label: {
-                Text("Sign up")
-            }).disabled(name.count < 5)
+            NavigationLink(destination: Screen2()) {
+                Text("Go to Screen 2")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(minWidth: 50, maxWidth: 200, minHeight: 20, maxHeight: 20, alignment: .center)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
         }
     }
 }
