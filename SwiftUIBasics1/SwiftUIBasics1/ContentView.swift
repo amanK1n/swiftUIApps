@@ -31,6 +31,17 @@ struct ContentView: View {
                     .background(Color.blue)
                     .cornerRadius(10)
             }
+            
+            NavigationLink(destination: Screen3()) {
+                Text("Go to Screen 3")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .frame(minWidth: 50, maxWidth: 200, minHeight: 20, maxHeight: 20, alignment: .center)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            
         }
     }
 }
