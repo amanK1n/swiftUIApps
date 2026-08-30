@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-   
+    @ObservedObject var emp: Employee = Employee()
+    @ObservedObject var acc: Account = Account()
     var body: some View {
         NavigationStack {
 
@@ -41,8 +42,18 @@ struct ContentView: View {
                     .background(Color.blue)
                     .cornerRadius(10)
             }
+            NavigationLink(destination: Screen4()) {
+                Text("Go to Screen 4")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .frame(width: 200, height: 20, alignment: .center)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
             
-        }
+        }.environmentObject(emp)
+         .environmentObject(acc)
     }
 }
 
