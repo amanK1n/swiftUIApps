@@ -31,6 +31,11 @@ struct TabbarView: View {
                     Text("Notes")
                     Image(systemName: "pencil")
                 }
-        }.accentColor(.purple)
+            Message()
+                .tabItem {
+                    Text("Message")
+                    Image(systemName: "message")
+                }
+        }.accentColor(.mint)
     }
 }
