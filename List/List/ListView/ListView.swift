@@ -1,13 +1,14 @@
 //
-//  ContentView.swift
+//  ListView.swift
 //  List
 //
 //  Created by comviva on 30/08/26.
 //
 
+import Foundation
 import SwiftUI
 
-struct ContentView: View {
+struct ListView: View {
     let cities = BundleDecoder.getCityData()
     var body: some View {
         NavigationView {
@@ -27,8 +28,4 @@ struct ContentView: View {
             }.navigationBarTitle("Landmark")
         }
     }
-}
-
-#Preview {
-    ContentView()
 }
