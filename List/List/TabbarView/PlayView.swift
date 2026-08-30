@@ -35,3 +35,17 @@ struct NotesView: View {
         }
     }
 }
+
+struct Message: View {
+    var body: some View {
+        VStack {
+            Image(systemName: "message")
+                .resizable()
+                .frame(width: 60, height: 60, alignment: .center)
+                .foregroundStyle(.quaternary)
+            Text("Message2")
+                .font(.system(size: 55, weight: .thin, design: .monospaced))
+                .foregroundStyle(.orange)
+        }
+    }
+}
