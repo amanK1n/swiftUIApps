@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var result: Dictionary<String, Any> = [:]
+    @State var result: Dictionary<String, Any>?
     @State var result2: [String:Any] = [:]
     var body: some View {
+        NavigationView {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
@@ -25,14 +26,19 @@ struct ContentView: View {
            
                 Text("2nd API call RESPONSE")
                 Text("\(result2)")
-            
+            NavigationLink(destination: RegFormView()) {
+                Text("Click to Register")
+                    .frame(width: 200, height: 40, alignment: .center)
+                    .foregroundStyle(.white)
+                    .background(.blue)
+                    .cornerRadius(10)
+            }
             
         }
         .padding()
-        .onAppear {
-            callAPI()
+       
+            
         }
-        
     }
     func callAPI() {
         let session = URLSession.shared
