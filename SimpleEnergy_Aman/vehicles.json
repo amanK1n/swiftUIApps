@@ -1,0 +1,35 @@
+[
+ {
+   "id": 1,
+   "name": "Simple One",
+   "model": "5 kWh",
+   "battery": 72,
+   "range": 118,
+   "speed": 45,
+   "odometer": 5420,
+   "status": "ONLINE",
+   "lastUpdated": "2026-09-07T10:30:00"
+ },
+ {
+   "id": 2,
+   "name": "Simple Ultra",
+   "model": "6.5 kWh",
+   "battery": 80,
+   "range": 400,
+   "speed": 115,
+   "odometer": 5400,
+   "status": "OFFLINE",
+   "lastUpdated": "2026-09-08T11:30:00"
+ },
+ {
+   "id": 2,
+   "name": "Simple OneS",
+   "model": "3.7 kWh",
+   "battery": 90,
+   "range": 190,
+   "speed": 90,
+   "odometer": 6400,
+   "status": "ONLINE",
+   "lastUpdated": "2026-09-09T11:30:00"
+ }
+]

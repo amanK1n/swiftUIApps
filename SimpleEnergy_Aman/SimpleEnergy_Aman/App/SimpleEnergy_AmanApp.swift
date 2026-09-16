@@ -11,7 +11,7 @@ import SwiftUI
 struct SimpleEnergy_AmanApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            VehicleListView()
         }
     }
 }
