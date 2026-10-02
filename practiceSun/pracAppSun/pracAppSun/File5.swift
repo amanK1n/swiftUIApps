@@ -40,6 +40,9 @@ struct SecondView: View {
         Stepper("Account Balance: \(account.accountBalance)", value: $account.accountBalance)
         NavigationLink("Navigate to 3rd view", destination: ThirdView())
     }
+    
+    
+    
 }
 
 // This is Third View of this module
