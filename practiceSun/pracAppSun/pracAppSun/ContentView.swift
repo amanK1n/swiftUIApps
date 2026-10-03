@@ -60,6 +60,16 @@ struct ContentView: View {
                     .cornerRadius(10)
                 
             }
+            NavigationLink(destination: File6()) {
+                Text("Go to video '7' List & NavView")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .frame(minWidth: 50, maxWidth: 280, minHeight: 20, maxHeight: 20, alignment: .center)
+                    .padding()
+                    .background(.purple)
+                    .cornerRadius(10)
+                
+            }
         }.environmentObject(user)
          .environmentObject(account)
     }
