@@ -25,15 +25,15 @@ struct File6_0: View {
         }
     }
     
-    func deleteStudentRecord(offSet: IndexSet) {
-        studentArr.remove(atOffsets: offSet)
+    func deleteStudentRecord(offset: IndexSet) {
+        studentArr.remove(atOffsets: offset)
     }
     
     
 }
 
 struct File6: View {
-    let city = BundleDecoder.decodeJSON()
+    let city = BundleDecoder.decodeLandmarkJSON()
     var body: some View {
         
         NavigationView {

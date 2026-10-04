@@ -27,7 +27,7 @@ struct ContentView: View {
                     .foregroundStyle(.white)
                     .frame(minWidth: 50, maxWidth: 280, minHeight: 20, maxHeight: 20, alignment: .center)
                     .padding()
-                    .background(.purple)
+                    .background(.pink)
                     .cornerRadius(10)
             }
             NavigationLink(destination: File3()) {
@@ -46,7 +46,7 @@ struct ContentView: View {
                     .foregroundStyle(.white)
                     .frame(minWidth: 50, maxWidth: 280, minHeight: 20, maxHeight: 20, alignment: .center)
                     .padding()
-                    .background(.purple)
+                    .background(.pink)
                     .cornerRadius(10)
                 
             }
@@ -61,7 +61,17 @@ struct ContentView: View {
                 
             }
             NavigationLink(destination: File6()) {
-                Text("Go to video '7' List & NavView")
+                Text("Go to video '8' List & NavView")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .frame(minWidth: 50, maxWidth: 280, minHeight: 20, maxHeight: 20, alignment: .center)
+                    .padding()
+                    .background(.pink)
+                    .cornerRadius(10)
+                
+            }
+            NavigationLink(destination: File7()) {
+                Text("Go to video '9' TabView")
                     .font(.headline)
                     .foregroundStyle(.white)
                     .frame(minWidth: 50, maxWidth: 280, minHeight: 20, maxHeight: 20, alignment: .center)
@@ -70,6 +80,20 @@ struct ContentView: View {
                     .cornerRadius(10)
                 
             }
+            
+            NavigationLink(destination: File8()) {
+                Text("Go to video '10' SearchBar UIViewRepntable")
+                    .font(.subheadline)
+                    .foregroundStyle(.white)
+                    .frame(width: 280, height: 20, alignment: .center)
+                    .padding()
+                    .background(.pink)
+                    .cornerRadius(10)
+            }
+            
+            
+            
+            
         }.environmentObject(user)
          .environmentObject(account)
     }
