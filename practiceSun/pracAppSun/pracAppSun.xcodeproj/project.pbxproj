@@ -6,6 +6,17 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D334FEDB30723BEF000E7757 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		D356D38A3068FFD40074D871 /* pracAppSun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pracAppSun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -53,6 +64,7 @@
 				D356D3863068FFD40074D871 /* Sources */,
 				D356D3873068FFD40074D871 /* Frameworks */,
 				D356D3883068FFD40074D871 /* Resources */,
+				D334FEDB30723BEF000E7757 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);

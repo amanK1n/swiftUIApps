@@ -91,7 +91,15 @@ struct ContentView: View {
                     .cornerRadius(10)
             }
             
-            
+            NavigationLink(destination: File9()) {
+                Text("Video '12' UIVCRptble UIImgPickrCtrl UIActivity")
+                    .font(.subheadline)
+                    .foregroundStyle(.white)
+                    .frame(width: 310, height: 20, alignment: .center)
+                    .padding()
+                    .background(.purple)
+                    .cornerRadius(10)
+            }
             
             
         }.environmentObject(user)
