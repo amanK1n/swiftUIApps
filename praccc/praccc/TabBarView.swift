@@ -27,6 +27,8 @@ struct TabBarView: View {
                     Image(systemName: "magnifyingglass")
                     
                 }.tag(2)
+            
+            
         }
     }
 }
