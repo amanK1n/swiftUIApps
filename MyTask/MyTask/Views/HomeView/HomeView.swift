@@ -8,7 +8,7 @@ import SwiftUI
 struct HomeView: View {
     @ObservedObject var taskViewModel: TaskViewModel = TaskViewModel()
     @State private var pickerFilters: [String] = ["Active", "Closed"]
-    @State private var defaultPickerSelectedItem: String = "Active"
+    @State private var defaultPickerSelectedItem: String = "Closed"
     var body: some View {
         NavigationStack {
             
@@ -32,7 +32,7 @@ struct HomeView: View {
                     }
                 }
             }.onAppear {
-                taskViewModel.getTasks(isActive: true)
+                taskViewModel.getTasks(isActive: defaultPickerSelectedItem == "Active")
             }.listStyle(.plain)
                 .navigationTitle("Home")
         }

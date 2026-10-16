@@ -12,9 +12,7 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
-        
-        dateFormatter.dateFormat = "mm/dd/yyyy"
-        
+        dateFormatter.dateFormat = "mm/dd/yyyy" 
         let result = dateFormatter.string(from: self)
         
         return result
