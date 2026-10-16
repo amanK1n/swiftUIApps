@@ -13,7 +13,7 @@ final class TaskViewModel: ObservableObject {
     
     func getTasks(isActive: Bool) {
         tasks = Task.createMockTasks().filter({ obj in
-            obj.isActive == isActive
+            obj.isCompleted == !isActive
         })
     }
 }
