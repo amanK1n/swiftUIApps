@@ -12,7 +12,7 @@ struct HomeView: View {
     @State private var showAddTaskView: Bool = false
     @State private var showTaskDetailsView: Bool = false
     @State private var selectedTask: Task = Task(id: 0, name: "", description: "", isCompleted: false, finishDate: Date())
-    
+    @State private var refreshTaskList: Bool = false
     var body: some View {
         NavigationStack {
             
@@ -38,6 +38,9 @@ struct HomeView: View {
                     selectedTask = task
                     showTaskDetailsView.toggle()
                 }
+                .onChange(of: refreshTaskList) { a,b in
+                    taskViewModel.getTasks(isActive: defaultPickerSelectedItem == "Active")
+                }
                 
             }.onAppear {
                 taskViewModel.getTasks(isActive: defaultPickerSelectedItem == "Active")
@@ -53,11 +56,13 @@ struct HomeView: View {
 
                     }
                 }.sheet(isPresented: $showAddTaskView) {
-                    AddTaskView(taskViewModel: taskViewModel, showAddTaskView: $showAddTaskView)
+                    AddTaskView(taskViewModel: taskViewModel, showAddTaskView: $showAddTaskView, refreshTaskList: $refreshTaskList)
                 }
                 .sheet(isPresented: $showTaskDetailsView) {
-                    TaskDetailsView(taskViewModel: taskViewModel, showTaskDetailsView: $showTaskDetailsView,
-                                    selectedTask: $selectedTask)
+                    TaskDetailsView(taskViewModel: taskViewModel,
+                                    showTaskDetailsView: $showTaskDetailsView,
+                                    selectedTask: $selectedTask,
+                                    refreshTaskList: $refreshTaskList)
                 }
             
             

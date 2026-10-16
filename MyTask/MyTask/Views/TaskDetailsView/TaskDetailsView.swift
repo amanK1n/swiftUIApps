@@ -10,6 +10,7 @@ struct TaskDetailsView: View {
     @ObservedObject var taskViewModel: TaskViewModel
     @Binding var showTaskDetailsView: Bool
     @Binding var selectedTask: Task
+    @Binding var refreshTaskList: Bool
     var body: some View {
         NavigationStack {
             List {
@@ -26,6 +27,9 @@ struct TaskDetailsView: View {
                 Section {
                     Button {
                         print("delete taskksks")
+                        taskViewModel.deleteTask(task: selectedTask)
+                        refreshTaskList.toggle()
+                        showTaskDetailsView.toggle()
                     } label: {
                         Text("Delete")
                             .fontWeight(.bold)
@@ -51,7 +55,8 @@ struct TaskDetailsView: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             showTaskDetailsView = false
-                            
+                            taskViewModel.updateTask(task: selectedTask)
+                            refreshTaskList.toggle()
                             print("Update button tapped")
                             print(selectedTask.name)
                             print(selectedTask.description)

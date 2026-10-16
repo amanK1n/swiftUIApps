@@ -14,6 +14,7 @@ struct AddTaskView: View {
     @ObservedObject var taskViewModel: TaskViewModel
     @State private var taskToAdd: Task = Task(id: 0, name: "", description: "", isCompleted: false, finishDate: Date())
     @Binding var showAddTaskView: Bool
+    @Binding var refreshTaskList: Bool
     var body: some View {
         NavigationStack {
             List {
@@ -28,7 +29,7 @@ struct AddTaskView: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button {
-                            showAddTaskView = false
+                            showAddTaskView.toggle()
                             print("Cancel button tapped")
                         } label: {
                             Text("Cancel")
@@ -39,7 +40,10 @@ struct AddTaskView: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             print("Add button tapped")
+                            taskViewModel.addTask(task: taskToAdd)
+                            refreshTaskList.toggle()
                             showAddTaskView.toggle()
+                            
                         } label: {
                             Text("Add")
                         }
@@ -53,6 +57,6 @@ struct AddTaskView: View {
 }
 struct AddTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTaskView(taskViewModel: TaskViewModel(), showAddTaskView: .constant(false))
+        AddTaskView(taskViewModel: TaskViewModel(), showAddTaskView: .constant(false), refreshTaskList: .constant(false))
     }
 }
