@@ -64,7 +64,7 @@ struct HomeView: View {
                     AddTaskView(taskViewModel: taskViewModel, showAddTaskView: $showAddTaskView, refreshList: $refreshList)
                 }
                 .sheet(isPresented: $showTaskDetailsView) {
-                    TaskDetailsView(showTaskDetailsView: $showTaskDetailsView, selectedTask: $selectedTask)
+                    TaskDetailsView(taskViewModel: taskViewModel, showTaskDetailsView: $showTaskDetailsView, selectedTask: $selectedTask, refreshList: $refreshList)
                 }
         }.onAppear {
             taskViewModel.getTasks(isCompleted: defaultSegmentSelection == "Active")

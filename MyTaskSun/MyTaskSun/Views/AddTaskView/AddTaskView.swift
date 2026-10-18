@@ -35,7 +35,7 @@ struct AddTaskView: View {
                             Text("Add")
                                 .foregroundStyle(.red)
                                 .fontWeight(.heavy)
-                        }
+                        }.disabled(taskToAdd.name.isEmpty)
                     }
                     ToolbarItem(placement: .topBarLeading) {
                         Button {
