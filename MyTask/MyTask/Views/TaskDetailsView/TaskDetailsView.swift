@@ -11,6 +11,7 @@ struct TaskDetailsView: View {
     @Binding var showTaskDetailsView: Bool
     @Binding var selectedTask: Task
     @Binding var refreshTaskList: Bool
+    @State var showDeleteAlert: Bool = false
     var body: some View {
         NavigationStack {
             List {
@@ -26,16 +27,39 @@ struct TaskDetailsView: View {
                 
                 Section {
                     Button {
+                       
+                        
+                        showDeleteAlert.toggle()
+                        
                         print("delete taskksks")
-                        taskViewModel.deleteTask(task: selectedTask)
-                        refreshTaskList.toggle()
-                        showTaskDetailsView.toggle()
+                       
                     } label: {
                         Text("Delete")
                             .fontWeight(.bold)
                             .foregroundStyle(.red)
                             .frame(maxWidth: .infinity, alignment: .center)
+                    }.alert("Delete Task",
+                            isPresented: $showDeleteAlert) {
+                        Button(role: .destructive) {
+                            taskViewModel.deleteTask(task: selectedTask)
+                            refreshTaskList.toggle()
+                            showTaskDetailsView.toggle()
+                        } label: {
+                            Text("Yes")
+                                .foregroundStyle(.red)
+                        }
+                        Button {
+                            showDeleteAlert.toggle()
+                        } label: {
+                            Text("No")
+                        }
+
+
+                    } message: {
+                        Text("Do you want to really Delete task ?")
+                            .foregroundStyle(.blue)
                     }
+
 
                 }
                 
@@ -63,7 +87,7 @@ struct TaskDetailsView: View {
                             print(selectedTask.isCompleted)
                         } label: {
                             Text("Update")
-                        }
+                        }.disabled(selectedTask.name.isEmpty)
 
                     }
                     
