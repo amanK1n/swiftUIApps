@@ -12,6 +12,18 @@ struct AddTaskView: View {
     @State private var taskToAdd: Task = Task(id: 0, name: "", description: "", isCompleted: false, finishDate: Date())
     @Binding var showAddTaskView: Bool
     @Binding var refreshList: Bool
+    var pickerRange: ClosedRange<Date> {
+        let calendar = Calendar.current
+        let currentDateComponent = calendar.dateComponents([.day, .month, .year, .hour, .minute], from: Date())
+        let startDateComponent = DateComponents(year: currentDateComponent.year, month: currentDateComponent.month, day: currentDateComponent.day, hour: currentDateComponent.hour, minute: currentDateComponent.minute)
+        
+        let endDateComponent = DateComponents(year: 2027, month: 12, day: 31)
+        
+        return calendar.date(from: startDateComponent)!...calendar.date(from: endDateComponent)!
+        
+    }
+    
+    
     var body: some View {
         NavigationStack {
             List {
@@ -20,7 +32,7 @@ struct AddTaskView: View {
                     TextEditor(text: $taskToAdd.description)
                 }
                 Section(header: Text("Task Date/Time")) {
-                    DatePicker("Date", selection: $taskToAdd.finishDate)
+                    DatePicker("Date", selection: $taskToAdd.finishDate, in: pickerRange)
                 }
                 
             }.navigationTitle("Add Task")
