@@ -34,9 +34,6 @@ struct AddTaskView: View {
                 Section(header: Text("Task Date/Time")) {
                     DatePicker("Date", selection: $taskToAdd.finishDate, in: pickerRange)
                 }
-                
-                
-                
             }.navigationTitle("Add Task")
                 .toolbar {
                     ToolbarItem(placement: .topBarPinnedTrailing) {
