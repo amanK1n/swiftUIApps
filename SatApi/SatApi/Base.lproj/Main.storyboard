@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="25098" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="25073"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SatApi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYX-sn-Uas">
+                                <rect key="frame" x="99.333333333333329" y="148" width="194.66666666666669" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="1. Video 1: Get API Call"/>
+                                <connections>
+                                    <action selector="getButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EFn-Zi-3id"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHa-gH-MXS">
+                                <rect key="frame" x="75" y="205" width="243" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="2. Video 2: Post User Api call"/>
+                                <connections>
+                                    <action selector="postBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GWW-9k-YF5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QY1-RK-3F2">
+                                <rect key="frame" x="76.666666666666671" y="262" width="239.66666666666663" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="3. Video 2: Get User API Call"/>
+                                <connections>
+                                    <action selector="getUserApiAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bwm-SG-17o"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTW-Ie-dkz">
+                                <rect key="frame" x="61" y="319" width="271.33333333333331" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="4. Video 3: Encodable POST Call"/>
+                                <connections>
+                                    <action selector="encodablePOSTAPICallAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UrT-lV-0Bq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QTW-Ie-dkz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pfg-jc-zHS"/>
+                            <constraint firstItem="oHa-gH-MXS" firstAttribute="top" secondItem="yYX-sn-Uas" secondAttribute="bottom" constant="22" id="TjQ-U7-zbC"/>
+                            <constraint firstItem="yYX-sn-Uas" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="mio-ZG-Jm9"/>
+                            <constraint firstItem="QTW-Ie-dkz" firstAttribute="top" secondItem="QY1-RK-3F2" secondAttribute="bottom" constant="22" id="oCQ-Xo-Lng"/>
+                            <constraint firstItem="oHa-gH-MXS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uRH-oU-ipp"/>
+                            <constraint firstItem="yYX-sn-Uas" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yCs-2c-pHz"/>
+                            <constraint firstItem="QY1-RK-3F2" firstAttribute="top" secondItem="oHa-gH-MXS" secondAttribute="bottom" constant="22" id="z5M-jG-ez3"/>
+                            <constraint firstItem="QY1-RK-3F2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zM7-zd-139"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-69" y="105"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

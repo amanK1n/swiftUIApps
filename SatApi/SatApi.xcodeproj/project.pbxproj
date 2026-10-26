@@ -1,0 +1,559 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		D3D0C5E0308CA49800C75C90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3D0C5C1308CA49600C75C90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D3D0C5C8308CA49600C75C90;
+			remoteInfo = SatApi;
+		};
+		D3D0C5EA308CA49800C75C90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3D0C5C1308CA49600C75C90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D3D0C5C8308CA49600C75C90;
+			remoteInfo = SatApi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D3D0C5C9308CA49600C75C90 /* SatApi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SatApi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3D0C5DF308CA49800C75C90 /* SatApiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SatApiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3D0C5E9308CA49800C75C90 /* SatApiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SatApiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D3D0C5EF308CA49800C75C90 /* Exceptions for "SatApi" folder in "SatApi" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D3D0C5C8308CA49600C75C90 /* SatApi */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D3D0C5CB308CA49600C75C90 /* SatApi */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D3D0C5EF308CA49800C75C90 /* Exceptions for "SatApi" folder in "SatApi" target */,
+			);
+			path = SatApi;
+			sourceTree = "<group>";
+		};
+		D3D0C5E2308CA49800C75C90 /* SatApiTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SatApiTests;
+			sourceTree = "<group>";
+		};
+		D3D0C5EC308CA49800C75C90 /* SatApiUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SatApiUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D3D0C5C6308CA49600C75C90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		D3D0C5DC308CA49800C75C90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		D3D0C5E6308CA49800C75C90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D3D0C5C0308CA49600C75C90 = {
+			isa = PBXGroup;
+			children = (
+				D3D0C5CB308CA49600C75C90 /* SatApi */,
+				D3D0C5E2308CA49800C75C90 /* SatApiTests */,
+				D3D0C5EC308CA49800C75C90 /* SatApiUITests */,
+				D3D0C5CA308CA49600C75C90 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D3D0C5CA308CA49600C75C90 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D3D0C5C9308CA49600C75C90 /* SatApi.app */,
+				D3D0C5DF308CA49800C75C90 /* SatApiTests.xctest */,
+				D3D0C5E9308CA49800C75C90 /* SatApiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D3D0C5C8308CA49600C75C90 /* SatApi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3D0C5F0308CA49800C75C90 /* Build configuration list for PBXNativeTarget "SatApi" */;
+			buildPhases = (
+				D3D0C5C5308CA49600C75C90 /* Sources */,
+				D3D0C5C6308CA49600C75C90 /* Frameworks */,
+				D3D0C5C7308CA49600C75C90 /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				D3D0C5CB308CA49600C75C90 /* SatApi */,
+			);
+			name = SatApi;
+			productName = SatApi;
+			productReference = D3D0C5C9308CA49600C75C90 /* SatApi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D3D0C5DE308CA49800C75C90 /* SatApiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3D0C5F5308CA49800C75C90 /* Build configuration list for PBXNativeTarget "SatApiTests" */;
+			buildPhases = (
+				D3D0C5DB308CA49800C75C90 /* Sources */,
+				D3D0C5DC308CA49800C75C90 /* Frameworks */,
+				D3D0C5DD308CA49800C75C90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3D0C5E1308CA49800C75C90 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D3D0C5E2308CA49800C75C90 /* SatApiTests */,
+			);
+			name = SatApiTests;
+			productName = SatApiTests;
+			productReference = D3D0C5DF308CA49800C75C90 /* SatApiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D3D0C5E8308CA49800C75C90 /* SatApiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3D0C5F8308CA49800C75C90 /* Build configuration list for PBXNativeTarget "SatApiUITests" */;
+			buildPhases = (
+				D3D0C5E5308CA49800C75C90 /* Sources */,
+				D3D0C5E6308CA49800C75C90 /* Frameworks */,
+				D3D0C5E7308CA49800C75C90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3D0C5EB308CA49800C75C90 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D3D0C5EC308CA49800C75C90 /* SatApiUITests */,
+			);
+			name = SatApiUITests;
+			productName = SatApiUITests;
+			productReference = D3D0C5E9308CA49800C75C90 /* SatApiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D3D0C5C1308CA49600C75C90 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2710;
+				LastUpgradeCheck = 2710;
+				TargetAttributes = {
+					D3D0C5C8308CA49600C75C90 = {
+						CreatedOnToolsVersion = 27.1;
+					};
+					D3D0C5DE308CA49800C75C90 = {
+						CreatedOnToolsVersion = 27.1;
+						TestTargetID = D3D0C5C8308CA49600C75C90;
+					};
+					D3D0C5E8308CA49800C75C90 = {
+						CreatedOnToolsVersion = 27.1;
+						TestTargetID = D3D0C5C8308CA49600C75C90;
+					};
+				};
+			};
+			buildConfigurationList = D3D0C5C4308CA49600C75C90 /* Build configuration list for PBXProject "SatApi" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D3D0C5C0308CA49600C75C90;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D3D0C5CA308CA49600C75C90 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D3D0C5C8308CA49600C75C90 /* SatApi */,
+				D3D0C5DE308CA49800C75C90 /* SatApiTests */,
+				D3D0C5E8308CA49800C75C90 /* SatApiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D3D0C5C7308CA49600C75C90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		D3D0C5DD308CA49800C75C90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		D3D0C5E7308CA49800C75C90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D3D0C5C5308CA49600C75C90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		D3D0C5DB308CA49800C75C90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		D3D0C5E5308CA49800C75C90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D3D0C5E1308CA49800C75C90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D3D0C5C8308CA49600C75C90 /* SatApi */;
+			targetProxy = D3D0C5E0308CA49800C75C90 /* PBXContainerItemProxy */;
+		};
+		D3D0C5EB308CA49800C75C90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D3D0C5C8308CA49600C75C90 /* SatApi */;
+			targetProxy = D3D0C5EA308CA49800C75C90 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D3D0C5F1308CA49800C75C90 /* Debug configuration for PBXNativeTarget "SatApi" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SatApi/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aman.com.SatApi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D3D0C5F2308CA49800C75C90 /* Release configuration for PBXNativeTarget "SatApi" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SatApi/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aman.com.SatApi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D3D0C5F3308CA49800C75C90 /* Debug configuration for PBXProject "SatApi" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D3D0C5F4308CA49800C75C90 /* Release configuration for PBXProject "SatApi" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D3D0C5F6308CA49800C75C90 /* Debug configuration for PBXNativeTarget "SatApiTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aman.com.SatApiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SatApi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SatApi";
+			};
+			name = Debug;
+		};
+		D3D0C5F7308CA49800C75C90 /* Release configuration for PBXNativeTarget "SatApiTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aman.com.SatApiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SatApi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SatApi";
+			};
+			name = Release;
+		};
+		D3D0C5F9308CA49800C75C90 /* Debug configuration for PBXNativeTarget "SatApiUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aman.com.SatApiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SatApi;
+			};
+			name = Debug;
+		};
+		D3D0C5FA308CA49800C75C90 /* Release configuration for PBXNativeTarget "SatApiUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aman.com.SatApiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SatApi;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D3D0C5C4308CA49600C75C90 /* Build configuration list for PBXProject "SatApi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3D0C5F3308CA49800C75C90 /* Debug configuration for PBXProject "SatApi" */,
+				D3D0C5F4308CA49800C75C90 /* Release configuration for PBXProject "SatApi" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		D3D0C5F0308CA49800C75C90 /* Build configuration list for PBXNativeTarget "SatApi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3D0C5F1308CA49800C75C90 /* Debug configuration for PBXNativeTarget "SatApi" */,
+				D3D0C5F2308CA49800C75C90 /* Release configuration for PBXNativeTarget "SatApi" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		D3D0C5F5308CA49800C75C90 /* Build configuration list for PBXNativeTarget "SatApiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3D0C5F6308CA49800C75C90 /* Debug configuration for PBXNativeTarget "SatApiTests" */,
+				D3D0C5F7308CA49800C75C90 /* Release configuration for PBXNativeTarget "SatApiTests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		D3D0C5F8308CA49800C75C90 /* Build configuration list for PBXNativeTarget "SatApiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3D0C5F9308CA49800C75C90 /* Debug configuration for PBXNativeTarget "SatApiUITests" */,
+				D3D0C5FA308CA49800C75C90 /* Release configuration for PBXNativeTarget "SatApiUITests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D3D0C5C1308CA49600C75C90 /* Project object */;
+	validationLevel = 1;
+}
