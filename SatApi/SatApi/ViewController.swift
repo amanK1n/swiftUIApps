@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func decodablePOSTAPICallAction(_ sender: Any) {
-        
+        decodablePostApiCall()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
