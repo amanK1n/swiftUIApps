@@ -11,6 +11,7 @@ struct Endpoint {
     static let todosEndpoint = "https://jsonplaceholder.typicode.com/todos/1" // VIDEO 1
     static let registerUser = "http://api-dev-scus-demo.azurewebsites.net/api/User/RegisterUser" // VIDEO 2
     static let getUser = "http://api-dev-scus-demo.azurewebsites.net/api/User/GetUser" // VIDEO 2
+    static let employeesEndpoint = "https://free.mockerapi.com/mock/e6e0104d-448d-4e31-a330-69609bfaf710" // VIDEO 4
     
 }
 
@@ -47,6 +48,9 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func decodablePOSTAPICallAction(_ sender: Any) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -170,16 +174,24 @@ extension ViewController {
     }
 }
 
+
 // VIDEO 3: Encodable in swift | Encodable with POST JSON API swift tutorial hindi
-
-
 extension ViewController {
+    // REQUEST MODEL ---------------------->>>>>>
     struct UserRegistrationRequest: Encodable {
         let name, email, password: String
        
         enum CodingKeys: String, CodingKey {
           case name, email, password
         }
+    }
+    // ------------------------------------>>>>>>
+    struct UserRegistrationResponse: Decodable {
+        let errorMessage: String
+        let data: UserData
+    }
+    struct UserData: Decodable {
+        let name, email, id, joining: String
     }
     
     func encodablePostApiCall() {
@@ -188,7 +200,7 @@ extension ViewController {
         
         
         
-        
+    
         do {
             let requestBody = try JSONEncoder().encode(request)
             urlRequest.httpMethod = "post"
@@ -211,9 +223,16 @@ extension ViewController {
             
             switch response.statusCode {
             case (200...203):
-                let jsonObj = try? JSONSerialization.jsonObject(with: data ?? Data())
-                let response = jsonObj as? Dictionary<String, Any>
-               dump(response)
+//                let jsonObj = try? JSONSerialization.jsonObject(with: data ?? Data())
+//                let response = jsonObj as? Dictionary<String, Any>
+//               dump(response)
+                do {
+                    let result = try JSONDecoder().decode(UserRegistrationResponse.self, from: data ?? Data())
+                    dump(result)
+                } catch let error {
+                    debugPrint(error)
+                }
+                
             case 401:
                 print("Un-authorized access")
             default:
