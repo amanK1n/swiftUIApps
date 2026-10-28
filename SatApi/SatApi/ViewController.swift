@@ -27,7 +27,18 @@ struct UserId: Codable {
 
 class ViewController: UIViewController {
 
+    private let httpUtility: HTTPUtility = HTTPUtility()
+//    init(_httpUtility: HTTPUtility) {
+//        httpUtility = _httpUtility
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//    
+//    required init?(coder: NSCoder) {
+//        self.httpUtility = HTTPUtility()
+//        super.init(coder: coder)
+//    }
     
+  
     @IBAction func getButtonAction(_ sender: Any) {
         executeVid1API()
     }
@@ -51,6 +62,21 @@ class ViewController: UIViewController {
     @IBAction func decodablePOSTAPICallAction(_ sender: Any) {
         decodablePostApiCall()
     }
+    
+    
+    @IBAction func usingGenericsAPICallAction(_ sender: Any) {
+        let url = URL(string: Endpoint.employeesEndpoint)
+        httpUtility.getApiData(requestURL: url!) { (result: EmployeeResponseModel) in
+            print(result.id)
+            print(result.depid)
+            print(result.joining)
+            print(result.name)
+            print(result.role)
+            print(result.salary)
+            print(result.workPhone)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

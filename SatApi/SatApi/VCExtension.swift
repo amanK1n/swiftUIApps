@@ -6,19 +6,19 @@
 //
 
 import Foundation
-
+struct EmployeeResponseModel: Decodable {
+    let id: Int
+    let name: String
+    let role: String
+    let joining: String
+    let depid: Int
+    let salary: Int
+    let workPhone: String
+}
 extension ViewController {
     // VIDEO 4: Decodable in swift | JsonDecoder in swift 5 | parse json api swift 5 Hindi
     
-    struct EmployeeResponseModel: Decodable {
-        let id: Int
-        let name: String
-        let role: String
-        let joining: String
-        let depid: Int
-        let salary: Int
-        let workPhone: String
-    }
+    
     
     func decodablePostApiCall() {
         let url = URL(string: Endpoint.employeesEndpoint)
@@ -56,4 +56,45 @@ extension ViewController {
             
         }.resume()
     }
+}
+
+// VIDEO 5: Write Clean code for JSON API parsing in swift
+// GENERICS
+struct HTTPUtility {
+    func getApiData<T: Decodable>(requestURL: URL, completionHandler: @escaping(_ result: T) -> Void ) {
+        URLSession.shared.dataTask(with: requestURL) { data, response, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                print(response)
+                return
+            }
+            
+            switch response.statusCode {
+            case (200...203):
+                print("")
+                do {
+                    let jsonData = try JSONDecoder().decode(T.self, from: data ?? Data())
+                    completionHandler(jsonData)
+                } catch let error {
+                    completionHandler(error as! T)
+                    debugPrint(error.localizedDescription)
+                }
+                
+            case 401:
+                print("Un-authorized")
+            default:
+                print("error")
+            }
+            
+        }.resume()
+        
+    }
+}
+
+extension ViewController {
+   
 }
