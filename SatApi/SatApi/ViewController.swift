@@ -27,16 +27,17 @@ struct UserId: Codable {
 
 class ViewController: UIViewController {
 
-    private let httpUtility: HTTPUtility = HTTPUtility()
-//    init(_httpUtility: HTTPUtility) {
-//        httpUtility = _httpUtility
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//    
-//    required init?(coder: NSCoder) {
-//        self.httpUtility = HTTPUtility()
-//        super.init(coder: coder)
-//    }
+    private let httpUtility: HTTPUtility
+    
+    init(_ httpUtility: HTTPUtility) {
+        self.httpUtility = httpUtility
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        self.httpUtility = HTTPUtility()
+        super.init(coder: coder)
+    }
     
   
     @IBAction func getButtonAction(_ sender: Any) {
