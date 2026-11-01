@@ -81,7 +81,18 @@ class ViewController: UIViewController {
     
     @IBAction func usingPOSTGenerics(_ sender: Any) {
         let urlString = URL(string: Endpoint.registerUser)
-        let urlRequest = URLRequest(url: <#T##URL#>)
+        let requestBody = UserRegistrationRequest(name: "aman", email: "aman@mail.com", password: "1234")
+        var encodedRequestBody: Data = Data()
+        do {
+            encodedRequestBody = try JSONEncoder().encode(requestBody)
+        } catch let error {
+            debugPrint(error)
+        }
+        httpUtility.getPostData(requestURL: urlString!, requestBody: encodedRequestBody, responseBody: UserRegistrationResponse.self) { result in
+            debugPrint(result.data.id)
+            debugPrint(result.data.name)
+            debugPrint(result.data.email)
+        }
     }
     
     override func viewDidLoad() {
