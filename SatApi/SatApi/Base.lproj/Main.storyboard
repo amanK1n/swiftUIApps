@@ -57,11 +57,20 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5p-qA-05f">
-                                <rect key="frame" x="107.66666666666667" y="433" width="177.66666666666663" height="35"/>
+                                <rect key="frame" x="89.333333333333329" y="433" width="214.33333333333337" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="6. Video 5: Generics"/>
+                                <buttonConfiguration key="configuration" style="plain" title="6. Video 5: GET Generics"/>
                                 <connections>
                                     <action selector="usingGenericsAPICallAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CEf-um-Om9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHU-2z-sEs">
+                                <rect key="frame" x="78" y="495" width="237" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="7. Video 6: POST GENERICS"/>
+                                <connections>
+                                    <action selector="usingPOSTGenerics:" destination="BYZ-38-t0r" eventType="touchUpInside" id="duo-Je-lfJ"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -59,9 +59,11 @@ extension ViewController {
 }
 
 // VIDEO 5: Write Clean code for JSON API parsing in swift
-// GENERICS
+// GET GENERICS
+// VIDEO 6: Clean code for JSON POST API request in swift with URLSession, Encodable & Generic
+// POST GENERICS
 struct HTTPUtility {
-    func getApiData<T: Decodable>(requestURL: URL, completionHandler: @escaping(_ result: T) -> Void ) {
+    func getApiData<T: Decodable>(requestURL: URL, resultType: T.Type ,completionHandler: @escaping(_ result: T) -> Void ) {
         URLSession.shared.dataTask(with: requestURL) { data, response, error in
             if let error = error {
                 print(error.localizedDescription)
@@ -77,7 +79,7 @@ struct HTTPUtility {
             case (200...203):
                 print("")
                 do {
-                    let jsonData = try JSONDecoder().decode(T.self, from: data ?? Data())
+                    let jsonData = try JSONDecoder().decode(resultType, from: data ?? Data())
                     completionHandler(jsonData)
                 } catch let error {
                     completionHandler(error as! T)
@@ -93,8 +95,44 @@ struct HTTPUtility {
         }.resume()
         
     }
+    
+    func getPostData<T: Decodable>(urlRequest: URLRequest, responseBody: T.Type, completionHandler: @escaping (_ result: T) -> Void) {
+        let session = URLSession.shared
+        session.dataTask(with: urlRequest) { data, response, error in
+            if let error = error {
+                dump(error)
+                return
+            }
+            guard let response = response as? HTTPURLResponse else {
+                debugPrint("Error in Response")
+                return
+            }
+            switch response.statusCode {
+            case (200...203):
+                print("")
+                do {
+                    let jsonData = try JSONDecoder().decode(responseBody, from: data ?? Data())
+                    completionHandler(jsonData)
+                } catch let error {
+                    debugPrint(error)
+                }
+            case 401:
+                debugPrint("Error UN-AUTH")
+            default:
+                debugPrint("Error DEFAULT ERROR")
+            }
+        }.resume()
+    }
 }
 
 extension ViewController {
-   
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

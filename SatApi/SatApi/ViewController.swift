@@ -67,7 +67,7 @@ class ViewController: UIViewController {
     
     @IBAction func usingGenericsAPICallAction(_ sender: Any) {
         let url = URL(string: Endpoint.employeesEndpoint)
-        httpUtility.getApiData(requestURL: url!) { (result: EmployeeResponseModel) in
+        httpUtility.getApiData(requestURL: url!, resultType: EmployeeResponseModel.self) { (result) in
             print(result.id)
             print(result.depid)
             print(result.joining)
@@ -76,6 +76,12 @@ class ViewController: UIViewController {
             print(result.salary)
             print(result.workPhone)
         }
+    }
+    
+    
+    @IBAction func usingPOSTGenerics(_ sender: Any) {
+        let urlString = URL(string: Endpoint.registerUser)
+        let urlRequest = URLRequest(url: <#T##URL#>)
     }
     
     override func viewDidLoad() {
