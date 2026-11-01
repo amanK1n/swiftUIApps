@@ -96,11 +96,18 @@ struct HTTPUtility {
         
     }
     
-    func getPostData<T: Decodable>(requestURL: URL, requestBody: Data, responseBody: T.Type, completionHandler: @escaping (_ result: T) -> Void) {
+    func getPostData<Request: Encodable, Response: Decodable>(requestURL: URL, requestBody: Request, responseBody: Response.Type, completionHandler: @escaping (_ result: Response) -> Void) {
         let session = URLSession.shared
         var urlRequest = URLRequest(url: requestURL)
+        var jsonEncodedRequestBody: Data
+        do {
+            jsonEncodedRequestBody = try JSONEncoder().encode(requestBody)
+        } catch let error {
+            debugPrint(error.localizedDescription)
+            return
+        }
         urlRequest.httpMethod = "POST"
-        urlRequest.httpBody = requestBody
+        urlRequest.httpBody = jsonEncodedRequestBody
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
       
         session.dataTask(with: urlRequest) { data, response, error in
