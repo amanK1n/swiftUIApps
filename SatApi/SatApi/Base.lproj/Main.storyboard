@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="25098" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="25408" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kdd-FR-Nd7">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="25073"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="25407"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYX-sn-Uas">
-                                <rect key="frame" x="99.333333333333329" y="148" width="194.66666666666669" height="35"/>
+                                <rect key="frame" x="99.333333333333329" y="143" width="194.66666666666669" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="1. Video 1: Get API Call"/>
                                 <connections>
@@ -25,7 +25,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHa-gH-MXS">
-                                <rect key="frame" x="75" y="205" width="243" height="35"/>
+                                <rect key="frame" x="75" y="200" width="243" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="2. Video 2: Post User Api call"/>
                                 <connections>
@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QY1-RK-3F2">
-                                <rect key="frame" x="76.666666666666671" y="262" width="239.66666666666663" height="35"/>
+                                <rect key="frame" x="76.666666666666671" y="257" width="239.66666666666663" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="3. Video 2: Get User API Call"/>
                                 <connections>
@@ -41,7 +41,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTW-Ie-dkz">
-                                <rect key="frame" x="61" y="319" width="271.33333333333331" height="35"/>
+                                <rect key="frame" x="61" y="314" width="271.33333333333331" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="4. Video 3: Encodable POST Call"/>
                                 <connections>
@@ -49,7 +49,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qV-fz-Xao">
-                                <rect key="frame" x="69" y="376" width="255" height="35"/>
+                                <rect key="frame" x="69" y="371" width="255" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="5. Video 4: Decodable in swift "/>
                                 <connections>
@@ -57,7 +57,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5p-qA-05f">
-                                <rect key="frame" x="89.333333333333329" y="433" width="214.33333333333337" height="35"/>
+                                <rect key="frame" x="89.333333333333329" y="428" width="214.33333333333337" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="6. Video 5: GET Generics"/>
                                 <connections>
@@ -65,11 +65,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHU-2z-sEs">
-                                <rect key="frame" x="78" y="490" width="237" height="35"/>
+                                <rect key="frame" x="78" y="485" width="237" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="7. Video 6: POST GENERICS"/>
                                 <connections>
                                     <action selector="usingPOSTGenerics:" destination="BYZ-38-t0r" eventType="touchUpInside" id="duo-Je-lfJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tD-gj-vEF">
+                                <rect key="frame" x="100.66666666666669" y="542" width="192" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="8. Vid 11: Query String"/>
+                                <connections>
+                                    <action selector="toQueryParamsType:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CVq-OC-egd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -77,11 +85,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="g5p-qA-05f" firstAttribute="top" secondItem="5qV-fz-Xao" secondAttribute="bottom" constant="22" id="11M-97-wgB"/>
+                            <constraint firstItem="2tD-gj-vEF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DKG-QV-oWa"/>
                             <constraint firstItem="LHU-2z-sEs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lxy-rE-iPT"/>
                             <constraint firstItem="QTW-Ie-dkz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pfg-jc-zHS"/>
                             <constraint firstItem="oHa-gH-MXS" firstAttribute="top" secondItem="yYX-sn-Uas" secondAttribute="bottom" constant="22" id="TjQ-U7-zbC"/>
                             <constraint firstItem="g5p-qA-05f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VbD-RM-OSY"/>
                             <constraint firstItem="5qV-fz-Xao" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wfw-TS-1kR"/>
+                            <constraint firstItem="2tD-gj-vEF" firstAttribute="top" secondItem="LHU-2z-sEs" secondAttribute="bottom" constant="22" id="bY2-K5-ICI"/>
                             <constraint firstItem="LHU-2z-sEs" firstAttribute="top" secondItem="g5p-qA-05f" secondAttribute="bottom" constant="22" id="eP1-Bs-3Hz"/>
                             <constraint firstItem="yYX-sn-Uas" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="mio-ZG-Jm9"/>
                             <constraint firstItem="QTW-Ie-dkz" firstAttribute="top" secondItem="QY1-RK-3F2" secondAttribute="bottom" constant="22" id="oCQ-Xo-Lng"/>
@@ -92,10 +102,29 @@
                             <constraint firstItem="QY1-RK-3F2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zM7-zd-139"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="7hx-ma-ILd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-69" y="105"/>
+            <point key="canvasLocation" x="857.25190839694653" y="104.92957746478874"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9ph-2l-JhE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kdd-FR-Nd7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="reK-gk-1tl">
+                        <rect key="frame" x="0.0" y="59" width="393" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hmv-v8-0fM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xle-Ec-JXR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-69.465648854961827" y="104.92957746478874"/>
         </scene>
     </scenes>
     <resources>

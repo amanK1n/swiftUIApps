@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="25408" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="25407"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QueryParamsViewController" customModule="SatApi" customModuleProvider="target">
+            <connections>
+                <outlet property="colorTextField" destination="zSy-GS-RRm" id="J1c-f4-hCT"/>
+                <outlet property="manufacturerTextField" destination="j9q-lI-30q" id="mO2-CR-pal"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="QueryParamsViewController" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Various Implementaions of GET Query Params" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1R4-PU-OxP">
+                    <rect key="frame" x="21.666666666666657" y="69" width="350" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="in4-WZ-NIi">
+                    <rect key="frame" x="69.333333333333329" y="190" width="254.33333333333337" height="35"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Simple Query Call % Encoding"/>
+                    <connections>
+                        <action selector="simpleQueryCall:" destination="-1" eventType="touchUpInside" id="Sp7-AK-y8l"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zSy-GS-RRm">
+                    <rect key="frame" x="10" y="100" width="373" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9q-lI-30q">
+                    <rect key="frame" x="10" y="144" width="373" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="j9q-lI-30q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="AIZ-iS-DUx"/>
+                <constraint firstItem="zSy-GS-RRm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="AaD-Aa-EiK"/>
+                <constraint firstItem="in4-WZ-NIi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EaR-NU-3ht"/>
+                <constraint firstItem="zSy-GS-RRm" firstAttribute="top" secondItem="1R4-PU-OxP" secondAttribute="bottom" constant="10" id="NLT-qW-1zx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zSy-GS-RRm" secondAttribute="trailing" constant="10" id="cvt-1E-ofs"/>
+                <constraint firstItem="1R4-PU-OxP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ftJ-xM-48I"/>
+                <constraint firstItem="1R4-PU-OxP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="ovN-0e-gZT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="j9q-lI-30q" secondAttribute="trailing" constant="10" id="wP9-eT-qd6"/>
+                <constraint firstItem="in4-WZ-NIi" firstAttribute="top" secondItem="j9q-lI-30q" secondAttribute="bottom" constant="12" id="ykg-WX-tTW"/>
+                <constraint firstItem="j9q-lI-30q" firstAttribute="top" secondItem="zSy-GS-RRm" secondAttribute="bottom" constant="10" id="yyH-e1-a08"/>
+            </constraints>
+            <point key="canvasLocation" x="11" y="70"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

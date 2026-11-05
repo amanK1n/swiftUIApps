@@ -12,7 +12,7 @@ struct Endpoint {
     static let registerUser = "http://api-dev-scus-demo.azurewebsites.net/api/User/RegisterUser" // VIDEO 2
     static let getUser = "http://api-dev-scus-demo.azurewebsites.net/api/User/GetUser" // VIDEO 2
     static let employeesEndpoint = "https://free.mockerapi.com/mock/e6e0104d-448d-4e31-a330-69609bfaf710" // VIDEO 4
-    
+    static let getMobile = "https://free.mockerapi.com/get?color=red&manufacturer=apple"
 }
 
 struct UserId: Codable {
@@ -84,11 +84,20 @@ class ViewController: UIViewController {
         let requestBody = UserRegistrationRequest(name: "aman", email: "aman@mail.com", password: "1234")
   
         httpUtility.getPostData(requestURL: urlString, requestBody: requestBody, responseBody: UserRegistrationResponse.self) { result in
-            debugPrint(result.data.id)
-            debugPrint(result.data.name)
-            debugPrint(result.data.email)
+            debugPrint(result.data?.id)
+            debugPrint(result.data?.name)
+            debugPrint(result.data?.email)
         }
     }
+    
+    
+    @IBAction func toQueryParamsType(_ sender: Any) {
+        print("To a new VC")
+        let targetVC = QueryParamsViewController(httpUtility)
+        self.navigationController?.pushViewController(targetVC, animated: true)
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -227,7 +236,20 @@ extension ViewController {
     // ------------------------------------>>>>>>
     struct UserRegistrationResponse: Decodable {
         let errorMessage: String
-        let data: UserData
+        let data: UserData?
+        
+        enum CodingKeys: String, CodingKey {
+            case data
+            case errorMessage
+        }
+        
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            self.errorMessage = try container.decode(String.self, forKey: .errorMessage)
+            self.data = try? container.decode(UserData.self, forKey: .data)
+        }
+        
     }
     struct UserData: Decodable {
         let name, email, id, joining: String
