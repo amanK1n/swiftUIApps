@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="colorTextField" destination="zSy-GS-RRm" id="J1c-f4-hCT"/>
                 <outlet property="manufacturerTextField" destination="j9q-lI-30q" id="mO2-CR-pal"/>
+                <outlet property="resultLable" destination="kry-hZ-Jxy" id="Emv-3m-HQB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -44,13 +45,21 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kry-hZ-Jxy">
+                    <rect key="frame" x="175.66666666666666" y="287" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="kry-hZ-Jxy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7Z1-9v-cxL"/>
                 <constraint firstItem="j9q-lI-30q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="AIZ-iS-DUx"/>
                 <constraint firstItem="zSy-GS-RRm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="AaD-Aa-EiK"/>
                 <constraint firstItem="in4-WZ-NIi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EaR-NU-3ht"/>
+                <constraint firstItem="kry-hZ-Jxy" firstAttribute="top" secondItem="in4-WZ-NIi" secondAttribute="bottom" constant="62" id="FF7-mA-GIg"/>
                 <constraint firstItem="zSy-GS-RRm" firstAttribute="top" secondItem="1R4-PU-OxP" secondAttribute="bottom" constant="10" id="NLT-qW-1zx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zSy-GS-RRm" secondAttribute="trailing" constant="10" id="cvt-1E-ofs"/>
                 <constraint firstItem="1R4-PU-OxP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ftJ-xM-48I"/>
