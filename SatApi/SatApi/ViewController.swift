@@ -98,6 +98,10 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func lazyLoadImgAction(_ sender: Any) {
+        let targetVC = AnimalVC(nibName: "AnimalVC", bundle: nil)
+        self.navigationController?.pushViewController(targetVC, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

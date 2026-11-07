@@ -80,11 +80,20 @@
                                     <action selector="toQueryParamsType:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CVq-OC-egd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZW-XT-aoz">
+                                <rect key="frame" x="67.333333333333343" y="606" width="258.66666666666663" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="9. Vid 10: Lazy Loading Images"/>
+                                <connections>
+                                    <action selector="lazyLoadImgAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hHU-yG-JnY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="g5p-qA-05f" firstAttribute="top" secondItem="5qV-fz-Xao" secondAttribute="bottom" constant="22" id="11M-97-wgB"/>
+                            <constraint firstItem="eZW-XT-aoz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9pH-hA-Q4p"/>
                             <constraint firstItem="2tD-gj-vEF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DKG-QV-oWa"/>
                             <constraint firstItem="LHU-2z-sEs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lxy-rE-iPT"/>
                             <constraint firstItem="QTW-Ie-dkz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pfg-jc-zHS"/>
@@ -92,6 +101,7 @@
                             <constraint firstItem="g5p-qA-05f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VbD-RM-OSY"/>
                             <constraint firstItem="5qV-fz-Xao" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wfw-TS-1kR"/>
                             <constraint firstItem="2tD-gj-vEF" firstAttribute="top" secondItem="LHU-2z-sEs" secondAttribute="bottom" constant="22" id="bY2-K5-ICI"/>
+                            <constraint firstItem="eZW-XT-aoz" firstAttribute="top" secondItem="2tD-gj-vEF" secondAttribute="bottom" constant="29" id="crt-lh-vzp"/>
                             <constraint firstItem="LHU-2z-sEs" firstAttribute="top" secondItem="g5p-qA-05f" secondAttribute="bottom" constant="22" id="eP1-Bs-3Hz"/>
                             <constraint firstItem="yYX-sn-Uas" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="mio-ZG-Jm9"/>
                             <constraint firstItem="QTW-Ie-dkz" firstAttribute="top" secondItem="QY1-RK-3F2" secondAttribute="bottom" constant="22" id="oCQ-Xo-Lng"/>
