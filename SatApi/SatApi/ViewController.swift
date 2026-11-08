@@ -103,6 +103,13 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(targetVC, animated: true)
     }
     
+    @IBAction func imageUploadAction(_ sender: Any) {
+        let targetVC = ImageUploadVC(nibName: "ImageUploadVC", bundle: nil)
+        self.navigationController?.pushViewController(targetVC, animated: true)
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
